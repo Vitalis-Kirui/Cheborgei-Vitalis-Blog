@@ -13,25 +13,63 @@
                 <!-- First name -->
                 <div class="form-group">
                     <label for="" class="mb-1 mt-3"><strong>First Name</strong></label>
-                    <input type="text" class="form-control" name="firstname" formControlName="firstname">
+                    <input type="text" class="form-control" name="firstname" formControlName="firstname"
+                    [class.is-invalid]="firstname?.invalid && firstname?.dirty"
+                    >
+                </div>
+
+                <!-- First name error messages -->
+                <div class="text-danger" *ngIf="firstname?.errors && firstname?.dirty">
+                    <small *ngIf="firstname?.errors?.['required']">First name is required</small>
+                    <small *ngIf="firstname?.errors?.['minlength']">First name must be at least 3 characters</small>
+                    <small *ngIf="firstname?.errors?.['forbiddenterm']"> {{firstname?.errors?.['forbiddenterm'].value}} not
+                        allowed first name</small>
                 </div>
 
                 <!-- Last name -->
                 <div class="form-group">
                     <label for="" class="mb-1 mt-3"><strong>Last Name</strong></label>
-                    <input type="text" class="form-control" name="lastname" formControlName="lastname">
+                    <input type="text" class="form-control" name="lastname" formControlName="lastname"
+                    [class.is-invalid]="lastname?.invalid && lastname?.dirty"
+                    >
+                </div>
+
+                <!-- Last name error messages -->
+                <div class="text-danger" *ngIf="lastname?.errors && lastname?.dirty">
+                    <small *ngIf="lastname?.errors?.['required']">Last name is required</small>
+                    <small *ngIf="lastname?.errors?.['minlength']">Last name must be at least 3 characters</small>
+                    <small *ngIf="lastname?.errors?.['forbiddenterm']"> {{lastname?.errors?.['forbiddenterm'].value}} not
+                        allowed last name</small>
                 </div>
 
                 <!-- Username -->
                 <div class="form-group">
                     <label for="" class="mb-1 mt-3"><strong>Username</strong></label>
-                    <input type="text" class="form-control" name="username" formControlName="username">
+                    <input type="text" class="form-control" name="username" formControlName="username"
+                    [class.is-invalid]="username?.invalid && username?.dirty"
+                    >
+                </div>
+
+                <!-- Username error messages -->
+                <div class="text-danger" *ngIf="username?.errors && username?.dirty">
+                    <small *ngIf="username?.errors?.['required']">Username is required</small>
+                    <small *ngIf="username?.errors?.['minlength']">Username must be at least 3 characters</small>
+                    <small *ngIf="username?.errors?.['forbiddenterm']"> {{username?.errors?.['forbiddenterm'].value}} not
+                        allowed username</small>
                 </div>
 
                 <!-- Email -->
                 <div class="form-group">
                     <label for="" class="mb-1 mt-3"><strong>Email</strong></label>
-                    <input type="email" class="form-control" name="email" formControlName="email">
+                    <input type="email" class="form-control" name="email" formControlName="email"
+                    [class.is-invalid]="email?.invalid && email?.dirty"
+                    >
+                </div>
+
+                <!-- Email error messages -->
+                <div class="text-danger" *ngIf="email?.errors && email?.dirty">
+                    <small *ngIf="email?.errors?.['required']">Email is required</small>
+                    <small *ngIf="email?.errors?.['pattern']">Invalid email address</small>
                 </div>
 
                 <!-- Subcription checkbox -->
@@ -43,14 +81,30 @@
                 <!-- Password -->
                 <div class="form-group">
                     <label for="" class="mb-1 mt-3"><strong>Password</strong></label>
-                    <input type="password" class="form-control" name="password" formControlName="password">
+                    <input type="password" class="form-control" name="password" formControlName="password"
+                    [class.is-invalid]="password?.invalid && password?.dirty"
+                    >
+                </div>
+
+                <!-- Password error messages -->
+                <div class="text-danger" *ngIf="password?.errors && password?.dirty">
+                    <small *ngIf="password?.errors?.['required']">Password is required</small>
+                    <small *ngIf="password?.errors?.['minlength']">Password must be at least 6 characters</small>
                 </div>
 
                 <!-- Confirm Password -->
                 <div class="form-group">
                     <label for="" class="mb-1 mt-3"><strong>Confirm Password</strong></label>
-                    <input type="password" class="form-control" name="confirmpassword" formControlName="confirmpassword">
+                    <input type="password" class="form-control" name="confirmpassword" formControlName="confirmpassword"
+                    [class.is-invalid]="registrationForm.errors?.['passwordMismatch']"
+                    >
                 </div>
+
+                <!-- Confirm password error message -->
+                <div class="text-danger">
+                    <small *ngIf="registrationForm.errors?.['passwordMismatch']">Password do not match</small>
+                </div>
+
 
                 <!-- Register button -->
                 <button class="btn btn-primary m-3" type="submit"><strong>Register</strong></button>
