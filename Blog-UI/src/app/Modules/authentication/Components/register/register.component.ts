@@ -12,6 +12,9 @@ export class RegisterComponent implements OnInit {
   // Form declarations
   registrationForm !: FormGroup;
 
+  // Email rexgex pattern
+  emailRegEx = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
+
   constructor(private router: Router, private fbService : FormBuilder) { }
   
   // Swiching user to login page
@@ -57,13 +60,13 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.registrationForm = this.fbService.group({
 
-      firstname: ['', Validators.required],
-      lastname :['', Validators.required],
-      username :['', Validators.required],
-      email: ['', Validators.required],
+      firstname: ['', [Validators.required, Validators.minLength(3)]],
+      lastname :['', [Validators.required, Validators.minLength(3)]],
+      username :['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.pattern(this.emailRegEx)]],
       subscribe:[false],
-      password: ['', Validators.required],
-      confirmpassword: ['', Validators.required]
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmpassword: ['', [Validators.required]]
 
     })
 
