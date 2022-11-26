@@ -19,6 +19,17 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['authentications/register']);
   }
 
+  // Getter functions
+  // Username
+  get username() {
+    return this.loginForm.get('username');
+  }
+
+  // password
+  get password() {
+    return this.loginForm.get('password');
+  }
+
   ngOnInit() {
     this.loginForm = this.fbService.group({
       username: ['', Validators.required],
