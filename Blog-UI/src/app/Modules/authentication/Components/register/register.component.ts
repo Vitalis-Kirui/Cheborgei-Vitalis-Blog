@@ -17,6 +17,9 @@ export class RegisterComponent implements OnInit {
   // Email rexgex pattern
   emailRegEx = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
 
+  // User subscription
+  userSubscribed: boolean = false;
+
   constructor(private router: Router, private fbService : FormBuilder) { }
   
   // Swiching user to login page
@@ -80,7 +83,26 @@ export class RegisterComponent implements OnInit {
       {validator : passwordMatchValidator}
     )
 
+    // Email conditional validation
+    this.subscribe?.valueChanges
+      .subscribe((checkedValue) => {
+
+        // Getting email address
+        const email = this.email;
+
+        if (checkedValue) {
+          this.userSubscribed = true;
+            email?.setValidators([Validators.required, Validators.pattern(this.emailRegEx)])
+        }
+        else {
+          this.userSubscribed = false;
+          email?.clearValidators();
+          email?.setValidators([Validators.pattern(this.emailRegEx)])
+        }
+        email?.updateValueAndValidity();
+        })
   }
+  
 
   // Submit function
   submitDetails() {
