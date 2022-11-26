@@ -8,48 +8,48 @@
             </div>
 
             <!-- Form -->
-            <form action="" class="form">
+            <form [formGroup]="registrationForm">
 
                 <!-- First name -->
                 <div class="form-group">
                     <label for="" class="mb-1 mt-3"><strong>First Name</strong></label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="firstname" formControlName="firstname">
                 </div>
 
                 <!-- Last name -->
                 <div class="form-group">
                     <label for="" class="mb-1 mt-3"><strong>Last Name</strong></label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="lastname" formControlName="lastname">
                 </div>
 
                 <!-- Username -->
                 <div class="form-group">
                     <label for="" class="mb-1 mt-3"><strong>Username</strong></label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="username" formControlName="username">
                 </div>
 
                 <!-- Email -->
                 <div class="form-group">
                     <label for="" class="mb-1 mt-3"><strong>Email</strong></label>
-                    <input type="email" class="form-control">
+                    <input type="email" class="form-control" name="email" formControlName="email">
                 </div>
 
                 <!-- Subcription checkbox -->
                 <div class="form-group pt-4">
-                    <input type="checkbox" class="form-check-input">
+                    <input type="checkbox" class="form-check-input" name="subscribe" formControlName="subscribe">
                     <label for="" class="form-check-label"><strong>Subscribe to Newsletter</strong></label>
                 </div>
 
                 <!-- Password -->
                 <div class="form-group">
                     <label for="" class="mb-1 mt-3"><strong>Password</strong></label>
-                    <input type="password" class="form-control">
+                    <input type="password" class="form-control" name="password" formControlName="password">
                 </div>
 
                 <!-- Confirm Password -->
                 <div class="form-group">
                     <label for="" class="mb-1 mt-3"><strong>Confirm Password</strong></label>
-                    <input type="password" class="form-control">
+                    <input type="password" class="form-control" name="confirmpassword" formControlName="confirmpassword">
                 </div>
 
                 <!-- Register button -->

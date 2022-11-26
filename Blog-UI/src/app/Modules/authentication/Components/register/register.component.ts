@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,14 +9,29 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  // Form declarations
+  registrationForm !: FormGroup;
+
+  constructor(private router: Router, private fbService : FormBuilder) { }
   
   // Swiching user to login page
   switchLogin() {
     this.router.navigate(['authentications/login']);
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.registrationForm = this.fbService.group({
+
+      firstname: ['', Validators.required],
+      lastname :['', Validators.required],
+      username :['', Validators.required],
+      email: ['', Validators.required],
+      subscribe:[false],
+      password: ['', Validators.required],
+      confirmpassword: ['', Validators.required]
+      
+    })
+
   }
 
 }
