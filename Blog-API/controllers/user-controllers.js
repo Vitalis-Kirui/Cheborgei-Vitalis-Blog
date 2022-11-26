@@ -1,5 +1,8 @@
 const User = require('../models/user-model');
+const jwt = require('jsonwebtoken');
+const config = require('../config/config-variables');
 
+// Create a new User object
 const createUser = (req, res) => { 
     let userDetails = req.body;
 
@@ -28,6 +31,38 @@ const createUser = (req, res) => {
 
 };
 
+// login user
+const loginUser = (req, res) => {
+    let userDetails = req.body;
+
+    let userUsename = userDetails.username;
+    
+    User.findOne({ username: userUsename }, (error, user) => {
+        if (error) {
+            console.log(error);
+        }
+        if (!user) {
+            res.json({status: 404, message:'User not found.'});
+        }
+        if (user) {
+            let enteredPassword = req.body.password;
+
+            if (enteredPassword !== user.password) { 
+                res.json({status:401, message:'Wrong password.'});
+            }
+            else {
+                // Genrating token
+                let payload = { subject: user._id }
+                let token = jwt.sign(payload, config.secrectKey)
+
+                res.json({message:"Login successful", token: token})
+            }
+        }
+    })
+
+ };
+
 module.exports = {
     createUser,
+    loginUser
 }
