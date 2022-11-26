@@ -8,7 +8,7 @@
             </div>
 
             <!-- Form -->
-            <form [formGroup]="registrationForm">
+            <form [formGroup]="registrationForm" (ngSubmit)="submitDetails()">
 
                 <!-- First name -->
                 <div class="form-group">
