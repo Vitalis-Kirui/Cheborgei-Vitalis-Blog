@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* font-family: 'Nova Round', cursive; */
+    font-family: 'Charm', cursive;
+}
+
+p {
+    /* font-size: 19px; */
+    font-size: 16px;
+}
+
+html,
+body {
+    height: 100%;
+}
