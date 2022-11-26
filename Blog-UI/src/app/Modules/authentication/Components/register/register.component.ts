@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { forbiddenTermsValidator } from 'src/app/Validators/forbidden-terms';
+import { passwordMatchValidator } from 'src/app/Validators/password-match';
 
 @Component({
   selector: 'app-register',
@@ -60,15 +62,23 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.registrationForm = this.fbService.group({
 
-      firstname: ['', [Validators.required, Validators.minLength(3)]],
-      lastname :['', [Validators.required, Validators.minLength(3)]],
-      username :['', [Validators.required, Validators.minLength(3)]],
+      firstname: ['', [Validators.required, Validators.minLength(3),
+        forbiddenTermsValidator(/admin/), forbiddenTermsValidator(/porn/), forbiddenTermsValidator(/you/),
+      forbiddenTermsValidator(/sex/), forbiddenTermsValidator(/fuck/)]],
+      lastname: ['', [Validators.required, Validators.minLength(3),
+      forbiddenTermsValidator(/admin/), forbiddenTermsValidator(/porn/), forbiddenTermsValidator(/you/),
+      forbiddenTermsValidator(/sex/), forbiddenTermsValidator(/fuck/)]],
+      username: ['', [Validators.required, Validators.minLength(3),
+      forbiddenTermsValidator(/admin/), forbiddenTermsValidator(/porn/), forbiddenTermsValidator(/you/),
+      forbiddenTermsValidator(/sex/), forbiddenTermsValidator(/fuck/)]],
       email: ['', [Validators.pattern(this.emailRegEx)]],
       subscribe:[false],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmpassword: ['', [Validators.required]]
 
-    })
+    },
+      {validator : passwordMatchValidator}
+    )
 
   }
 
