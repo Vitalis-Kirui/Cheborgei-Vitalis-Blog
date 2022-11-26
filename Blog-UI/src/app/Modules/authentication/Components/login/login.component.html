@@ -8,18 +8,18 @@
             </div>
 
             <!-- Form -->
-            <form action="" class="form">
+            <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
 
-                <!-- Email -->
+                <!-- Username -->
                 <div class="form-group">
-                    <label for="" class="mb-1 mt-3"><strong>Email</strong></label>
-                    <input type="email" class="form-control">
+                    <label for="" class="mb-1 mt-3"><strong>Username</strong></label>
+                    <input type="text" class="form-control" name="username" formControlName="username">
                 </div>
 
                 <!-- Password -->
                 <div class="form-group">
                     <label for="" class="mb-1 mt-3"><strong>Password</strong></label>
-                    <input type="password" class="form-control">
+                    <input type="password" class="form-control" name="password" formControlName="password">
                 </div>
 
                 <!-- Register button -->
