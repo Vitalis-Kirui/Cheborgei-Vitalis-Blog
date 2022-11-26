@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const config = require('./config/config-variables');
+const userRoutes = require('./routes/user-routes');
 
 // Initializing app
 const app = express();
@@ -23,3 +24,4 @@ mongoose.connect(config.dbConnectionString)
     });
 
     // Using user routes
+    app.use('/users', userRoutes)
