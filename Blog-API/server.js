@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const config = require('./config/config-variables');
-const { dbConnectionString } = require('./config/config-variables');
 
 // Initializing app
 const app = express();
@@ -22,3 +21,5 @@ mongoose.connect(config.dbConnectionString)
     .catch((error) => { 
         console.log(error);
     });
+
+    // Using user routes
