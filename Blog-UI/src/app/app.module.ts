@@ -9,6 +9,7 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { AboutBlogComponent } from './Components/about-blog/about-blog.component';
 import { ContactMeComponent } from './Components/contact-me/contact-me.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],

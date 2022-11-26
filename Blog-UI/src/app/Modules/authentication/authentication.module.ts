@@ -9,6 +9,7 @@ import { AccountComponent } from './Components/account/account.component';
 import { UpdateDetailsComponent } from './Components/update-details/update-details.component';
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { ForgotPasswordComponent } from './Components/forgot-password/forgot-pas
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     AuthenticationRoutingModule
   ]
 })
