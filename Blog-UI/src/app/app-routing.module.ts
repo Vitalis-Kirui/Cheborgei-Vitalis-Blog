@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'about-blog', component: AboutBlogComponent },
   {path : 'contact-me', component : ContactMeComponent},
   { path: 'authentications', loadChildren: () => import('./Modules/authentication/authentication.module').then(m => m.AuthenticationModule) },
+  { path: 'admin', loadChildren: () => import('./Modules/admin/admin.module').then(m => m.AdminModule) },
   {path:'**', component: NotFoundComponent}
 ];
 
