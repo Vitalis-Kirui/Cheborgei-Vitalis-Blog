@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -18,7 +19,7 @@ export class AdminComponent implements OnInit {
   // Form properties
   verifyForm!: FormGroup;
 
-  constructor(private fbService: FormBuilder) { }
+  constructor(private fbService: FormBuilder, private router : Router) { }
   
   // Getter function
   get passcode() {
