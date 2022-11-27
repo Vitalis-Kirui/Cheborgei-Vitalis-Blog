@@ -76,8 +76,23 @@ const getUsers = (req, res) => {
 
 };
 
+// Getting a single user
+const getSingleUser = (req, res) => { 
+    let id = req.params.id;
+
+    User.findById(id, (error, user) => { 
+        if (error) {
+            console.log(error);
+        }
+        else {
+            res.json({status: 200, message:'success', user: user});
+        }
+    });
+};
+
 module.exports = {
     createUser,
     loginUser,
-    getUsers
+    getUsers,
+    getSingleUser
 }
