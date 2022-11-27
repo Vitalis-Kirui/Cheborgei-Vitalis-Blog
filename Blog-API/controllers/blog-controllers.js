@@ -16,6 +16,20 @@ const createBlog = (req, res) => {
     });
 };
 
+// Getting all the blogs
+const getBlogs = (req, res) => { 
+
+    Blog.find((error, blogs) => {
+        if (error) {
+            console.error(error);
+        }
+        else {
+            res.json({ status: 200, message: 'success', blogs: blogs });
+        }
+    })
+};
+
 module.exports = {
     createBlog,
+    getBlogs
 }
