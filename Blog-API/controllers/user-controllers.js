@@ -60,9 +60,24 @@ const loginUser = (req, res) => {
         }
     })
 
- };
+};
+ 
+// getting all users
+const getUsers = (req, res) => { 
+
+    User.find((error, users) => {
+        if (error) {
+            console.log(error)
+        }
+        else {
+            res.json({ status: 200, message: 'Success', users: users });
+        }
+     });
+
+};
 
 module.exports = {
     createUser,
-    loginUser
+    loginUser,
+    getUsers
 }
