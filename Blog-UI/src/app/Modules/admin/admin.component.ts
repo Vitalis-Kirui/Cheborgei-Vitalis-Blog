@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-admin',
@@ -10,11 +11,19 @@ export class AdminComponent implements OnInit {
 
   // Verify boolean properties
   verified: boolean = false;
+
+  // Error message
+  errorMessage:boolean = false;
   
   // Form properties
   verifyForm!: FormGroup;
 
-  constructor(private fbService : FormBuilder) { }
+  constructor(private fbService: FormBuilder) { }
+  
+  // Getter function
+  get passcode() {
+    return this.verifyForm.get('passcode');
+  }
 
   ngOnInit() {
 
@@ -27,8 +36,21 @@ export class AdminComponent implements OnInit {
 
   // Verify function
   verify() {
-    console.log(this.verifyForm.value);
-    this.verified = true;
+
+    let userCode = this.verifyForm.value.passcode;
+
+    if (userCode !== environment.adminPasscode) {
+      this.errorMessage = true;      
+      this.verified = false;
+      this.verifyForm.reset();
+
+    }
+    else {
+      this.verified = true;
+      this.errorMessage  = false;
+      this.verifyForm.reset();
+    }
+    
   }
 
 }

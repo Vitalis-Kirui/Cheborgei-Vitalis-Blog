@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-4 mx-auto my-5 verify">
+        <div class="col-md-4 mx-auto my-5 verify" *ngIf="!verified">
 
             <h3 class="text-center text-success"><strong>VERIFY</strong></h3>
             <hr>
@@ -10,7 +10,17 @@
 
                 <div class="form-group">
                     <label for="" class="mb-1"><strong>Enter admin passcode</strong></label>
-                    <input type="text" class="form-control" name="passcode" formControlName="passcode">
+                    <input type="text" class="form-control" name="passcode" formControlName="passcode"
+                    [class.is-invalid]="passcode?.invalid && passcode?.dirty"
+                    >
+                    
+                    <!-- Wrong passcode verification -->
+                    <small class="text-danger" *ngIf="errorMessage">Wrong passcode</small>
+                </div>
+
+                <!-- Error messages -->
+                <div class="text-danger" *ngIf="passcode?.invalid && passcode?.dirty">
+                    <small>Passcode is required</small>
                 </div>
 
                 <!-- Submit button -->
