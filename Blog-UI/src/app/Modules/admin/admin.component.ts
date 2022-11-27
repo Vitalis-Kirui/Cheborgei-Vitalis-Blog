@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  // Verify boolean properties
+  verified: boolean = false;
+  
+  // Form properties
+  verifyForm!: FormGroup;
 
-  ngOnInit(): void {
+  constructor(private fbService : FormBuilder) { }
+
+  ngOnInit() {
+
+    // form model
+    this.verifyForm = this.fbService.group({
+      passcode : [, Validators.required]
+    });
+
   }
 
 }

@@ -7,6 +7,7 @@ import { UsersComponent } from './Components/users/users.component';
 import { BlogsComponent } from './Components/blogs/blogs.component';
 import { BlogDetailsComponent } from './Components/blog-details/blog-details.component';
 import { UserDetailsComponent } from './Components/user-details/user-details.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { UserDetailsComponent } from './Components/user-details/user-details.com
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     AdminRoutingModule
   ]
 })
