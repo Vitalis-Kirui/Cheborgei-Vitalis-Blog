@@ -25,4 +25,10 @@ export class AdminComponent implements OnInit {
 
   }
 
+  // Verify function
+  verify() {
+    console.log(this.verifyForm.value);
+    this.verified = true;
+  }
+
 }

@@ -6,15 +6,15 @@
             <hr>
 
             <!-- Verify form -->
-            <form action="">
+            <form action="" [formGroup]="verifyForm">
 
                 <div class="form-group">
                     <label for="" class="mb-1"><strong>Enter admin passcode</strong></label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="passcode" formControlName="passcode">
                 </div>
 
                 <!-- Submit button -->
-                <button class="btn btn-primary m-3" type="button">Verify</button>
+                <button class="btn btn-primary m-3" type="button" (click)="verify()">Verify</button>
 
             </form>
 
