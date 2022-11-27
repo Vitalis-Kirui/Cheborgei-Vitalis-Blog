@@ -4,6 +4,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const config = require('./config/config-variables');
 const userRoutes = require('./routes/user-routes');
+const blogRoutes = require('./routes/blog-routes');
 
 // Initializing app
 const app = express();
@@ -24,4 +25,7 @@ mongoose.connect(config.dbConnectionString)
     });
 
     // Using user routes
-    app.use('/users', userRoutes)
+app.use('/users', userRoutes);
+    
+// Using blog routes
+app.use('/blogs', blogRoutes);
