@@ -29,7 +29,25 @@ const getBlogs = (req, res) => {
     })
 };
 
+// Getting a single blog
+const getSingleBlog = (req, res) => {
+
+    let blogId = req.params.id;
+
+    Blog.findById(blogId, (error, blog) => { 
+
+        if (error) { 
+            console.error(error);
+        }
+        else {
+            res.json({ status: 200, message: 'success', blog: blog });
+        }
+    });
+
+ };
+
 module.exports = {
     createBlog,
-    getBlogs
+    getBlogs,
+    getSingleBlog,
 }
