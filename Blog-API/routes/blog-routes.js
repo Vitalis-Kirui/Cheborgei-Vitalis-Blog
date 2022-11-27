@@ -9,6 +9,6 @@ router.post('/create-blog', blogControllers.createBlog);
 router.get('/all-blogs', blogControllers.getBlogs);
 
 // get a single blog route
-router.get('/single-blog', blogControllers.getSingleBlog);
+router.get('/blog/:id', blogControllers.getSingleBlog);
 
 module.exports = router;
