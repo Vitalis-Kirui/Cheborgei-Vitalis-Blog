@@ -1,1 +1,110 @@
-<p>update-details works!</p>
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 my-5 mx-auto updateForm">
+
+                <!-- Update form -->
+                <h2 class="text-center"><strong>Update Profile</strong></h2>
+                <hr class="mx-auto">
+
+                <form [formGroup]="updateForm" (ngSubmit)="submitForm()">
+
+                    <!-- First name -->
+                    <div class="form-group">
+                        <label class="mb-1 mt-3" for=""><strong>First Name</strong></label>
+                        <input type="text" class="form-control" formControlName="firstname"
+                            [class.is-invalid]="firstname?.invalid && firstname?.dirty">
+                    </div>
+
+                    <!-- First name error messages -->
+                    <div class="text-danger" *ngIf="firstname?.invalid && firstname?.dirty">
+                        <small
+                            *ngIf="firstname?.errors?.['forbiddenTerms']">{{firstname?.errors?.['forbiddenTerms'].value}}
+                            is not
+                            allowed first name</small>
+                        <small *ngIf="firstname?.errors?.['minlength']">First name must have a least 3
+                            characters</small>
+                    </div>
+
+                    <!-- Last name -->
+                    <div class="form-group">
+                        <label for="" class="mb-1 mt-3"><strong>Last Name</strong></label>
+                        <input type="text" class="form-control" formControlName="lastname"
+                            [class.is-invalid]="lastname?.invalid && lastname?.dirty">
+                    </div>
+
+                    <!-- Last name error messages -->
+                    <div class="text-danger" *ngIf="lastname?.invalid && lastname?.dirty">
+                        <small
+                            *ngIf="lastname?.errors?.['forbiddenTerms']">{{lastname?.errors?.['forbiddenTerms'].value}}
+                            is not
+                            allowed last name</small>
+                        <small *ngIf="lastname?.errors?.['minlength']">Last name must have a least 3 characters</small>
+                    </div>
+
+                    <!-- Username -->
+                    <div class="form-group">
+                        <label for="" class="mb-1 mt-3"><strong>Username</strong></label>
+                        <input type="text" class="form-control" formControlName="username"
+                            [class.is-invalid]="username?.invalid && username?.dirty">
+                    </div>
+
+                    <!-- Username error messages -->
+                    <div class="text-danger" *ngIf="username?.invalid && username?.dirty">
+                        <small
+                            *ngIf="username?.errors?.['forbiddenTerms']">{{username?.errors?.['forbiddenTerms'].value}}
+                            is not
+                            allowed username</small>
+                        <small *ngIf="username?.errors?.['minlength']">Username must have a least 3 characters</small>
+                    </div>
+
+                    <!-- already registered error message -->
+                    <small class="text-danger" *ngIf="registered">Username already exist</small>
+
+                    <!-- Phone number -->
+                    <div class="form-group">
+                        <label for="" class="mb-1 mt-3"><strong>Phone Number</strong></label>
+                        <input type="number" class="form-control" formControlName="phonenumber"
+                            [class.is-invalid]="phonenumber?.invalid && phonenumber?.dirty">
+                    </div>
+
+                    <!-- Phone number error messages -->
+                    <div class="text-danger" *ngIf="phonenumber?.invalid && phonenumber?.dirty">
+                        <small *ngIf="phonenumber?.errors?.['minlength']">Phone number must have a least 10
+                            digits</small>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group mb-1 mt-3">
+                        <label for=""><strong>Email</strong></label>
+                        <input type="email" class="form-control" formControlName="email"
+                            [class.is-invalid]="email?.invalid && email?.dirty">
+                    </div>
+
+                    <!-- Email error messages -->
+                    <div class="text-danger" *ngIf="email?.invalid && email?.dirty">
+                        <small *ngIf="email?.errors?.['required']"> Email address is required</small>
+                        <small *ngIf="email?.errors?.['pattern']"> Invalid email address</small>
+                    </div>
+
+                    <!-- Directive whenever user subscribe to promotional messages -->
+                    <small *ngIf="email?.untouched && subscribe?.dirty " class="text-success">You are subscribing to
+                        promotional offers,
+                        enter your email address.</small>
+
+                    <!-- Subscribe -->
+                    <div class="form-group mb-1 mt-3">
+                        <input type="checkbox" class="form-check-input" formControlName="subscribe">
+                        <label for="" class="form-check-label"><strong>Subscribe to receive promotional
+                                messages</strong></label>
+                    </div>
+
+                    <!-- Registration button -->
+                    <button class="btn btn-primary m-2" type="submit" [disabled]="updateForm.invalid">Update</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
