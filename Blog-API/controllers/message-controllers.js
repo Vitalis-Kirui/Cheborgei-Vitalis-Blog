@@ -40,7 +40,7 @@ const getMessages = (req, res) => {
 const getSingleMessage = (req, res) => { 
     const id = req.params.id;
 
-    Message.findById((error, message) => { 
+    Message.findById(id, (error, message) => { 
         if (error) {
             console.log(error);
         }
@@ -51,9 +51,23 @@ const getSingleMessage = (req, res) => {
 };
 
 // Deleting a single message
+const deleteMessage = (req, res) => { 
+    const id = req.params.id;
+
+    Message.findByIdAndDelete(id, (error, message) => { 
+
+        if (error) { 
+            console.log(error);
+        }
+        else {
+            res.json({ message: 'Message deleted successfully' });
+        }
+    });
+};
 
 module.exports = {
     createMessage,
     getMessages,
-    getSingleMessage
+    getSingleMessage,
+    deleteMessage
 };
