@@ -37,10 +37,23 @@ const getMessages = (req, res) => {
 };
 
 // Getting a single message
+const getSingleMessage = (req, res) => { 
+    const id = req.params.id;
+
+    Message.findById((error, message) => { 
+        if (error) {
+            console.log(error);
+        }
+        else { 
+            res.json({ message: message });
+        };
+    });
+};
 
 // Deleting a single message
 
 module.exports = {
     createMessage,
-    getMessages
+    getMessages,
+    getSingleMessage
 };
