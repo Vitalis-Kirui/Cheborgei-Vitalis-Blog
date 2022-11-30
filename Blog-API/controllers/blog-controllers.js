@@ -44,10 +44,25 @@ const getSingleBlog = (req, res) => {
         }
     });
 
- };
+};
+ 
+// Deleting a blog
+const deleteBlog = (req, res) => { 
+    let blogId = req.params.id;
+
+    Blog.findByIdAndDelete(blogId, (error, deleteMessage) => { 
+        if (error) {
+            console.error(error);
+        }
+        else {
+            res.json({ status: 200, message: 'Message deleted successfully' });
+        }
+    })
+};
 
 module.exports = {
     createBlog,
     getBlogs,
     getSingleBlog,
+    deleteBlog
 }
