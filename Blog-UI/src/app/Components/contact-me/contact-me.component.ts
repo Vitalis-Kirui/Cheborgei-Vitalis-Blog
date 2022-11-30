@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { forbiddenTermsValidator } from 'src/app/Validators/forbidden-terms';
 
 @Component({
   selector: 'app-contact-me',
@@ -32,14 +33,15 @@ export class ContactMeComponent implements OnInit {
     // Form model
     this.contactForm = this.fbService.group({
       email: ['', [Validators.required, Validators.pattern(this.emailRegExp)]],
-      message: ['', [Validators.required]]
+      message: ['', [Validators.required, forbiddenTermsValidator(/porn/),
+      forbiddenTermsValidator(/fuck/), forbiddenTermsValidator(/sex/)]]
     })
 
   }
 
   // Submit form
   submit() {
-    
+    console.log(this.contactForm.value);
   }
 
 }
