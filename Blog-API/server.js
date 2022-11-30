@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const config = require('./config/config-variables');
 const userRoutes = require('./routes/user-routes');
 const blogRoutes = require('./routes/blog-routes');
+const messagesRoutes = require('./routes/message-routes');
 
 // Initializing app
 const app = express();
@@ -29,3 +30,6 @@ app.use('/users', userRoutes);
     
 // Using blog routes
 app.use('/blogs', blogRoutes);
+
+// Using messages routes
+app.use('/messages', messagesRoutes);
