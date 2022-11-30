@@ -13,15 +13,28 @@ const createMessage = (req, res) => {
             console.log(error);
         }
         else {
-            let messageCount = savedMessage.length;
 
-            res.json({message : 'success', total: messageCount, messages : savedMessage});
+            res.json({message : 'success'});
         }
 
     })
 };
 
 // Getting all the messages
+const getMessages = (req, res) => { 
+
+    Message.find((error, messages) => { 
+        if (error) { 
+            console.log(error);
+        }
+        else {
+
+            let messageCount = messages.length;
+
+            res.json({total : messageCount, messages: messages });            
+        }
+    });
+};
 
 // Getting a single message
 
@@ -29,4 +42,5 @@ const createMessage = (req, res) => {
 
 module.exports = {
     createMessage,
+    getMessages
 };
