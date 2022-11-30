@@ -28,6 +28,12 @@ const userSchema = new Schema({
     confirmPassword: {
         type: String,
         required: true,
+    },
+    profileimage: {
+        type: String
+    },
+    bio: {
+        type: String
     }
 },
     {timestamps: true}
