@@ -8,6 +8,8 @@ import { BlogsComponent } from './Components/blogs/blogs.component';
 import { BlogDetailsComponent } from './Components/blog-details/blog-details.component';
 import { UserDetailsComponent } from './Components/user-details/user-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MessageDetailsComponent } from './Components/message-details/message-details.component';
+import { MessageComponent } from './Components/message/message.component'
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     UsersComponent,
     BlogsComponent,
     BlogDetailsComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    MessageDetailsComponent,
+    MessageComponent
   ],
   imports: [
     CommonModule,
