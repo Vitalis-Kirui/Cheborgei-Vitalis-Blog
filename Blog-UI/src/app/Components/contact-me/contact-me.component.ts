@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-me',
@@ -7,9 +8,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactMeComponent implements OnInit {
 
-  constructor() { }
+  // Form declarations
+  contactForm !: FormGroup;
 
-  ngOnInit(): void {
+  // Email validation expression
+  emailRegExp = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
+
+  constructor(private fbService: FormBuilder) { }
+  
+     // Getter functions
+  // email address
+  get email(){
+    return this.contactForm.get('email');
+  }
+
+  // message
+  get message(){
+    return this.contactForm.get('message');
+  }
+
+  ngOnInit() {
+
+    // Form model
+    this.contactForm = this.fbService.group({
+      email: ['', [Validators.required, Validators.pattern(this.emailRegExp)]],
+      message: ['', [Validators.required]]
+    })
+
+  }
+
+  // Submit form
+  submit() {
+    
   }
 
 }
