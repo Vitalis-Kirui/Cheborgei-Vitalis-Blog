@@ -1,0 +1,14 @@
+hr{
+    width: 35%;
+    border: 1px solid black;
+    margin-top: 1%;
+}
+
+label{
+    color: green;
+}
+
+.form{
+    width: 75%;
+    margin: auto;
+}
