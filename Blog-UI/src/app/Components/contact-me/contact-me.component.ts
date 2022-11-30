@@ -42,6 +42,7 @@ export class ContactMeComponent implements OnInit {
   // Submit form
   submit() {
     console.log(this.contactForm.value);
+    this.contactForm.reset();
   }
 
 }
