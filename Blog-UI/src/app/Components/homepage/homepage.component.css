@@ -8,3 +8,8 @@ hr{
     margin: auto;
     padding-bottom: 2%;
 }
+
+.heading p{
+    padding-left: 5%;
+    padding-right: 5%;
+}
