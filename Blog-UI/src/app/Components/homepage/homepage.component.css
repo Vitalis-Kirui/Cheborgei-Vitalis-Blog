@@ -2,17 +2,17 @@ h1, h2, h3, h4, h5, h6{
     background-color: rgb(194, 223, 250);
     padding: 1%;
     margin: auto;
-    box-shadow: 0px 0px 10px -5px grey;
+    /* box-shadow: 0px 0px 10px -5px grey; */
     margin-bottom: 1%;
 }
 
 .myName{
-    width: 50%;
-    border-radius: 50px 0px 150px 0px;
+    width: 60%;
+    border-radius: 150px 0px 110px 0px;
 }
 
 .topBlogsName {
-    width: 25%;
+    width: 35%;
     border-radius: 150px 0px 150px 0px;
 }
 
@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .suggestionN2 {
-    width: 60%;
+    width: 75%;
     border-radius: 150px 0px 150px 0px;
 }
 
@@ -49,10 +49,15 @@ hr{
     padding-right: 5%;
 }
 
+/* Buttons */
+button{
+    border-radius: 150px 0px 150px 0px;
+}
+
 /* Blog section code  */
 .blogs{
     background-color: white;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     margin-top: 1%;
     padding: 2%;
 }
@@ -73,14 +78,14 @@ hr{
 .activeBlogs{
     /* background-color: rgb(218, 236, 251); */
     padding: 1%;
-    border-radius: 150px 0px 150px 0px;
+    border-radius: 110px 0px 150px 0px;
     box-shadow: 0px 0px 5px 0px grey;
 }
 
 .newBlogs{
     /* background-color: rgb(201, 255, 255); */
     padding: 1%;
-    border-radius: 150px 0px 150px 0px;
+    border-radius: 110px 0px 150px 0px;
     box-shadow: 0px 0px 5px 0px grey;
 }
 
