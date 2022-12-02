@@ -32,10 +32,18 @@
 
 label{
     color: brown;
+    font-weight: 600;
 }
 
 .form{
     width: 85%;
     margin: auto;
     padding-bottom: 2%;
+}
+
+/* Switch panel code */
+.switchPanel{
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 2%;
 }
