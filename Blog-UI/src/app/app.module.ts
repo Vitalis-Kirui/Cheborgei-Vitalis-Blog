@@ -10,6 +10,7 @@ import { AboutBlogComponent } from './Components/about-blog/about-blog.component
 import { ContactMeComponent } from './Components/contact-me/contact-me.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BlogDetailsComponent } from './Components/blog-details/blog-details.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     AboutBlogComponent,
     ContactMeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    BlogDetailsComponent
   ],
   imports: [
     BrowserModule,

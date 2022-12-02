@@ -13,3 +13,23 @@ hr{
     padding-left: 5%;
     padding-right: 5%;
 }
+
+/* Blog section code  */
+.blogs{
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 1%;
+    padding-top: 1%;
+}
+
+.list p{
+    margin-left: 5%;
+}
+
+.list ul{
+    margin-left: 10%;
+}
+
+.list li{
+    font-weight: 600;
+}
