@@ -14,3 +14,14 @@
     margin: auto;
     padding-bottom: 1%;
 }
+
+/* Running and blog form styles */
+.runningBlogs{
+    background-color: aliceblue;
+    border-radius: 20px;
+}
+
+.blogForm{
+    background-color: beige;
+    border-radius: 20px;
+}
