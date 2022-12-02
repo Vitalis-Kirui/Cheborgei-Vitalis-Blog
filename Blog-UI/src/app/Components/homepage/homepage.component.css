@@ -1,9 +1,44 @@
+h1, h2, h3, h4, h5, h6{
+    background-color: rgb(194, 223, 250);
+    padding: 1%;
+    margin: auto;
+    box-shadow: 0px 0px 10px -5px grey;
+    margin-bottom: 1%;
+}
+
+.myName{
+    width: 50%;
+    border-radius: 20px;
+}
+
+.topBlogsName {
+    width: 25%;
+    border-radius: 20px;
+}
+
+.active,
+.new{
+    width: 40%;
+    border-radius: 20px;
+}
+
+.suggestionN1{
+    width: 60%;
+    border-radius: 20px;
+}
+
+.suggestionN2 {
+    width: 50%;
+    border-radius: 20px;
+}
+
 .topIntroduction{
     background-color: white;
     border-radius: 20px;
     padding-top: 2%;
 }
 hr{
+    display: none;
     width: 50%;
     margin: auto;
     padding-bottom: 2%;
@@ -44,7 +79,7 @@ hr{
 
 .newBlogs{
     /* background-color: rgb(201, 255, 255); */
-    padding: 2%;
+    padding: 1%;
     border-radius: 10px;
     box-shadow: 0px 0px 5px 0px grey;
 }
