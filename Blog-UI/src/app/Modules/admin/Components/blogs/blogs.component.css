@@ -19,9 +19,23 @@
 .runningBlogs{
     background-color: aliceblue;
     border-radius: 20px;
+    padding-top: 1%;
 }
 
 .blogForm{
     background-color: beige;
     border-radius: 20px;
+    padding-top: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+label{
+    color: brown;
+}
+
+.form{
+    width: 85%;
+    margin: auto;
+    padding-bottom: 2%;
 }
