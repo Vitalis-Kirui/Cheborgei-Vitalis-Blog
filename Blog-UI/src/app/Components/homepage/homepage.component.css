@@ -7,12 +7,12 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .myName{
-    width: 60%;
-    border-radius: 150px 0px 110px 0px;
+    width: 50%;
+    border-radius: 100px 0px 100px 0px;
 }
 
 .topBlogsName {
-    width: 35%;
+    width: 25%;
     border-radius: 150px 0px 150px 0px;
 }
 
@@ -52,12 +52,13 @@ hr{
 /* Buttons */
 button{
     border-radius: 150px 0px 150px 0px;
+    font-size: 0.9rem;
 }
 
 /* Blog section code  */
 .blogs{
     background-color: white;
-    /* border-radius: 20px; */
+    border-radius: 20px;
     margin-top: 1%;
     padding: 2%;
 }
@@ -102,6 +103,11 @@ label{
 .suggestionForm{
     width: 75%;
     margin: auto;
+}
+
+.form-control{
+    padding: 2%;
+    border-radius: 50px 0px 100px 0px;
 }
 
 .suggestion{

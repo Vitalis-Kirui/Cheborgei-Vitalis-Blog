@@ -1,6 +1,11 @@
-hr {
-    width: 65%;
+h2{
+    background-color: rgb(209, 231, 250);
+    width: 50%;
     margin: auto;
+    border-radius: 150px 0px 150px 0px;
+    color: black !important;
+    padding: 1%;
+
 }
 
 label {
@@ -10,6 +15,10 @@ label {
 .login {
     background-color: rgb(255, 255, 255);
     padding: 5%;
-    border-radius: 20px;
-    box-shadow: 0px 0px 0px 0px;
+    border-radius: 150px 0px 150px 0px;
+}
+
+button{
+    font-size: 0.8rem;
+    border-radius: 150px 0px 150px 0px;
 }

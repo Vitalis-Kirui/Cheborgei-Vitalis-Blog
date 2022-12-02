@@ -9,26 +9,14 @@
     border-radius: 20px;
 }
 
-.heading hr{
-    width: 50%;
-    margin: auto;
-    padding-bottom: 1%;
-}
-
 /* Running and blog form styles */
 .runningBlogs{
-    background-color: aliceblue;
-    border-radius: 20px;
+    background-color: rgb(209, 231, 250);
+    /* padding: 5%; */
+    border-radius: 150px 0px 150px 0px;
     padding-top: 1%;
 }
 
-.blogForm{
-    background-color: beige;
-    border-radius: 20px;
-    padding-top: 1%;
-    padding-left: 2%;
-    padding-right: 2%;
-}
 
 label{
     color: brown;
@@ -46,4 +34,42 @@ label{
     background-color: white;
     border-radius: 20px;
     margin-top: 2%;
+}
+
+h1 {
+    background-color: rgb(209, 231, 250);
+    width: 50%;
+    margin: auto;
+    border-radius: 100px 0px 100px 0px;
+    color: black !important;
+    padding: 1%;
+
+}
+
+h2{
+    background-color: white;
+    color: black !important;
+    width: 65%;
+    margin: auto;
+    padding: 1%;
+    border-radius: 150px 0px 150px 0px;
+}
+
+.switchPanel h2{
+    background-color: rgb(209, 231, 250);
+    width: 65%;
+    margin: auto;
+    padding: 1%;
+    border-radius: 150px 0px 150px 0px;
+}
+
+.blogForm {
+    background-color: rgb(233, 233, 156);
+    padding: 1%;
+    border-radius: 150px 0px 150px 0px;
+}
+
+button {
+    font-size: 0.8rem;
+    border-radius: 150px 0px 150px 0px;
 }
