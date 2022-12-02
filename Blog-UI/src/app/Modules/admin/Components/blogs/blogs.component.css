@@ -1,0 +1,16 @@
+.heading{
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 1%;
+}
+
+.blogAdmin{
+    background-color: white;
+    border-radius: 20px;
+}
+
+.heading hr{
+    width: 50%;
+    margin: auto;
+    padding-bottom: 1%;
+}
