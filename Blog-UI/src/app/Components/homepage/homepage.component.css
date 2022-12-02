@@ -19,7 +19,7 @@ hr{
     background-color: white;
     border-radius: 20px;
     margin-top: 1%;
-    padding-top: 1%;
+    padding: 2%;
 }
 
 .list p{
@@ -36,20 +36,35 @@ hr{
 
 /* Trending blogs */
 .activeBlogs{
-    background-color: rgb(218, 236, 251);
+    /* background-color: rgb(218, 236, 251); */
     padding: 1%;
     border-radius: 10px;
-    /* box-shadow: 0px 0px 3px 0px grey; */
+    box-shadow: 0px 0px 5px 0px grey;
 }
 
 .newBlogs{
-    background-color: rgb(201, 255, 255);
+    /* background-color: rgb(201, 255, 255); */
     padding: 2%;
     border-radius: 10px;
-    /* box-shadow: 0px 0px 3px 0px grey; */
+    box-shadow: 0px 0px 5px 0px grey;
 }
 
 .category{
     background-color: gold;
     padding: 5px;
+}
+
+/* Suggestion styles */
+label{
+    color: brown;
+}
+
+.suggestionForm{
+    width: 75%;
+    margin: auto;
+}
+
+.suggestion{
+    padding: 2%;
+    box-shadow: 0px 0px 20px -10px grey;
 }
