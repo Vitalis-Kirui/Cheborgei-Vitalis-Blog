@@ -31,9 +31,26 @@ const getBlogRequests = (req, res) => {
             res,json({ok: true, status: 200, requests: blogRequests, total:totalRequests});
         }
      });
- };
+};
+ 
+// Getting a single blog request
+const getSingleBlogRequest = (req, res) => { 
+
+    const id = req.params.id;
+
+    BlogRequest.findById(id, (error, blogRequest) => {
+        if (error) {
+            console.log(error);
+        }
+        else {
+            res.json({ ok: true, status: 200, requests: blogRequest });
+        }
+    });
+
+};
 
 module.exports = {
     createBlogRequest,
     getBlogRequests,
+    getSingleBlogRequest,
 }
