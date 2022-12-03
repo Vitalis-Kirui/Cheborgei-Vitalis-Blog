@@ -10,7 +10,8 @@ import { UserDetailsComponent } from './Components/user-details/user-details.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { MessageDetailsComponent } from './Components/message-details/message-details.component';
 import { MessageComponent } from './Components/message/message.component';
-import { BlogRequestsComponent } from './Components/blog-requests/blog-requests.component'
+import { BlogRequestsComponent } from './Components/blog-requests/blog-requests.component';
+import { BlogRequestsDetailsComponent } from './Components/blog-requests-details/blog-requests-details.component'
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { BlogRequestsComponent } from './Components/blog-requests/blog-requests.
     UserDetailsComponent,
     MessageDetailsComponent,
     MessageComponent,
-    BlogRequestsComponent
+    BlogRequestsComponent,
+    BlogRequestsDetailsComponent
   ],
   imports: [
     CommonModule,

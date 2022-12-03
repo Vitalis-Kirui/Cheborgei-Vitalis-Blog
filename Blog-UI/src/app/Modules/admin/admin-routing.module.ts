@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { BlogDetailsComponent } from './Components/blog-details/blog-details.component';
+import { BlogRequestsDetailsComponent } from './Components/blog-requests-details/blog-requests-details.component';
 import { BlogRequestsComponent } from './Components/blog-requests/blog-requests.component';
 import { BlogsComponent } from './Components/blogs/blogs.component';
 import { MessageDetailsComponent } from './Components/message-details/message-details.component';
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'user/:id', component: UserDetailsComponent },
   { path: 'blogs', component: BlogsComponent },
   { path: 'blog/:id', component: BlogDetailsComponent },
-  {path : 'blog-requests', component:BlogRequestsComponent},
+  { path: 'blog-requests', component: BlogRequestsComponent },
+  { path: 'blog-request/:id', component: BlogRequestsDetailsComponent },
   { path: 'messages', component: MessageComponent },
   {path: 'messages/:id', component: MessageDetailsComponent}
 ];
