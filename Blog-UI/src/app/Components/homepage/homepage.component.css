@@ -86,7 +86,7 @@ button{
 .newBlogs{
     /* background-color: rgb(201, 255, 255); */
     padding: 1%;
-    border-radius: 110px 0px 150px 0px;
+    border-radius: 110px 0px 100px 0px;
     box-shadow: 0px 0px 5px 0px grey;
 }
 
@@ -107,7 +107,7 @@ label{
 
 .form-control{
     padding: 2%;
-    border-radius: 50px 0px 100px 0px;
+    border-radius: 25px 0px 100px 0px;
 }
 
 .suggestion{
