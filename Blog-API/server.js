@@ -6,6 +6,7 @@ const config = require('./config/config-variables');
 const userRoutes = require('./routes/user-routes');
 const blogRoutes = require('./routes/blog-routes');
 const messagesRoutes = require('./routes/message-routes');
+const blogRequestsRoutes = require('./routes/blog-request-routes');
 
 // Initializing app
 const app = express();
@@ -33,3 +34,6 @@ app.use('/blogs', blogRoutes);
 
 // Using messages routes
 app.use('/messages', messagesRoutes);
+
+// Using blog requests routes
+app.use('/blog-requests', blogRequestsRoutes);
