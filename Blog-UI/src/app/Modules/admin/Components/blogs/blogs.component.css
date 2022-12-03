@@ -52,6 +52,7 @@ h2{
     width: 65%;
     margin: auto;
     padding: 1%;
+    margin-bottom: 5%;
     border-radius: 150px 0px 150px 0px;
 }
 
@@ -72,4 +73,8 @@ h2{
 button {
     font-size: 0.8rem;
     border-radius: 150px 0px 150px 0px;
+}
+
+.heading p{
+    margin-bottom: 2%;
 }
