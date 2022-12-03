@@ -9,7 +9,8 @@ import { BlogDetailsComponent } from './Components/blog-details/blog-details.com
 import { UserDetailsComponent } from './Components/user-details/user-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MessageDetailsComponent } from './Components/message-details/message-details.component';
-import { MessageComponent } from './Components/message/message.component'
+import { MessageComponent } from './Components/message/message.component';
+import { BlogRequestsComponent } from './Components/blog-requests/blog-requests.component'
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { MessageComponent } from './Components/message/message.component'
     BlogDetailsComponent,
     UserDetailsComponent,
     MessageDetailsComponent,
-    MessageComponent
+    MessageComponent,
+    BlogRequestsComponent
   ],
   imports: [
     CommonModule,
