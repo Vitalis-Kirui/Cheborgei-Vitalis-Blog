@@ -49,8 +49,24 @@ const getSingleBlogRequest = (req, res) => {
 
 };
 
+// Deleting a blog request
+const deleteBlogRequests = (req, res) => {
+
+    const id = req.params.id;
+
+    BlogRequest.findByIdAndDelete(id, (error, blogRequest) => { 
+        if (error) {
+            console.log(error);
+        }
+        else {
+            res.json({ ok: true, status: 200, message: 'Blog request deleted successfully' });
+        }
+    });
+ };
+
 module.exports = {
     createBlogRequest,
     getBlogRequests,
     getSingleBlogRequest,
+    deleteBlogRequests
 }
