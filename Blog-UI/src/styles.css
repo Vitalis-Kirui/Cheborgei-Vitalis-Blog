@@ -4,7 +4,9 @@
     margin: 0;
     box-sizing: border-box;
     /* font-family: 'Nova Round', cursive; */
-    font-family: 'Charm', cursive;
+    /* font-family: 'Charm', cursive; */
+    /* font-family: 'Lusitana', serif; */
+    font-family: 'Amiri', serif;
 }
 
 html,
