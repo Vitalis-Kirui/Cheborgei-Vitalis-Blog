@@ -25,6 +25,8 @@ export class HomepageComponent implements OnInit {
 
   submitSuggestion() {
     console.log(this.suggestionForm.value)
+
+    this.suggestionForm.reset();
   };
 
 }

@@ -19,14 +19,24 @@ const createBlog = (req, res) => {
 // Getting all the blogs
 const getBlogs = (req, res) => { 
 
-    Blog.find((error, blogs) => {
-        if (error) {
-            console.error(error);
-        }
-        else {
-            res.json({ status: 200, message: 'success', blogs: blogs });
-        }
-    })
+    // Blog.find((error, blogs) => {
+    //     if (error) {
+    //         console.error(error);
+    //     }
+    //     else {
+    //         res.json({ status: 200, message: 'success', blogs: blogs });
+    //     }
+    // })
+
+    // Getting blogs and sorting them in descending order
+    Blog.find({}).sort({ createdAt: -1 }).then(blogs => {
+        res.json({status: 200, message: 'success', blogs: blogs})
+    },
+        error => {
+            console.log(error);
+         }
+    )
+
 };
 
 // Getting a single blog
