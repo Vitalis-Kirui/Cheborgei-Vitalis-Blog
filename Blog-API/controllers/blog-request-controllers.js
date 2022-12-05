@@ -21,16 +21,15 @@ const createBlogRequest = (req, res) => {
 // Fetching blog requests
 const getBlogRequests = (req, res) => {
 
-    BlogRequest.find((error, blogRequests) => {
-        if (error) {
-            console.log(error);
-        }
-        else {
-            let totalRequests = blogRequests.length;
+    BlogRequest.find().sort({ createdAt: -1 }).then(blogRequests => {
+        let totalRequests = blogRequests.length;
 
-            res,json({ok: true, status: 200, requests: blogRequests, total:totalRequests});
+        res,json({ok: true, status: 200, requests: blogRequests, total:totalRequests});
+    },
+        error => {
+            console.error(error);
         }
-     });
+     );
 };
  
 // Getting a single blog request
