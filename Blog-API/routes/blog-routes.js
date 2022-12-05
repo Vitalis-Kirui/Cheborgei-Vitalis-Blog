@@ -11,6 +11,12 @@ router.get('/all-blogs', blogControllers.getBlogs);
 // get a single blog route
 router.get('/blog/:id', blogControllers.getSingleBlog);
 
+// Updating a single blog route
+router.put('/update-blog/:id', blogControllers.updateSingleBlog);
+
+// Getting new blogs
+router.get('/new-blogs', blogControllers.newBlogs);
+
 // Delete a single blog route
 router.delete('/blog/:id', blogControllers.deleteBlog);
 

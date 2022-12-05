@@ -70,6 +70,22 @@ const getSingleBlog = (req, res) => {
     });
 
 };
+
+// Updating a single blog
+const updateSingleBlog = (req, res) => { 
+    const blogId = req.params.id;
+
+    let updateDetails = req.body;
+
+    Blog.findByIdAndUpdate(blogId, updateDetails, (error, updatedBlog) => { 
+        if (error) {
+            console.log(error);
+        }
+        else {
+            res.json({message: 'success', blog: updatedBlog})
+        }
+    });
+};
  
 // Deleting a blog
 const deleteBlog = (req, res) => { 
@@ -90,5 +106,6 @@ module.exports = {
     getBlogs,
     getSingleBlog,
     deleteBlog,
-    newBlogs
+    newBlogs,
+    updateSingleBlog,
 }
