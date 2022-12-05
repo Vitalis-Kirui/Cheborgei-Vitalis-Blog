@@ -23,17 +23,29 @@ const createMessage = (req, res) => {
 // Getting all the messages
 const getMessages = (req, res) => { 
 
-    Message.find((error, messages) => { 
-        if (error) { 
+    // Message.find((error, messages) => { 
+    //     if (error) {
+    //         console.log(error);
+    //     }
+    //     else {
+
+    //         let messageCount = messages.length;
+
+    //         res.json({total : messageCount, messages: messages });
+    //     }
+    // });
+    
+    // Finding and sorting messages
+    Message.find().sort({ createdAt: -1 }).then((messages) => { 
+
+        let messageCount = messages.length;
+
+        res.json({total : messageCount, messages: messages });       
+    },
+        error => {
             console.log(error);
         }
-        else {
-
-            let messageCount = messages.length;
-
-            res.json({total : messageCount, messages: messages });            
-        }
-    });
+    );
 };
 
 // Getting a single message
