@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-homepage',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
+  // Suggestion form
+  suggestionForm! : FormGroup;
+
+  constructor(private fbService : FormBuilder) { }
+
+  ngOnInit() {
+
+    this.suggestionForm = this.fbService.group({
+      title: ['', [Validators.required]],
+      category: ['', [Validators.required]],
+      blog: ['', [Validators.required]],
+    });
   }
+
+  submitSuggestion() {
+    console.log(this.suggestionForm.value)
+  };
 
 }
