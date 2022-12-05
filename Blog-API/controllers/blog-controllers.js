@@ -39,6 +39,18 @@ const getBlogs = (req, res) => {
 
 };
 
+// Getting active blogs and sorting them in descending order
+const activeBlogs = (req, res) => {
+
+    Blog.find({ status: 'active' }).sort({ createdAt: -1 }).then(activeblogs => {
+        res, json({ status: 200, message: 'success', activeBlogs: activeblogs });
+    },
+        error => {
+            console.log(error);
+        }
+    );
+ };
+
 // Getting new blogs based on specific period of time
 const newBlogs = (req, res) => { 
     Blog.find({ createdAt: { $lt: new Date(), $gt: new Date(new Date().getTime() - (72 * 60 * 60 * 1000)) } }).sort({
@@ -108,4 +120,5 @@ module.exports = {
     deleteBlog,
     newBlogs,
     updateSingleBlog,
+    activeBlogs,
 }
