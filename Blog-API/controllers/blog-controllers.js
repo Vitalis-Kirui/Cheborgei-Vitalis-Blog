@@ -43,7 +43,25 @@ const getBlogs = (req, res) => {
 const activeBlogs = (req, res) => {
 
     Blog.find({ status: 'active' }).sort({ createdAt: -1 }).then(activeblogs => {
-        res, json({ status: 200, message: 'success', activeBlogs: activeblogs });
+
+        let totalActiveBlogs = activeBlogs.length;
+
+        res, json({ status: 200, message: 'success',total : totalActiveBlogs,  activeBlogs: activeblogs });
+    },
+        error => {
+            console.log(error);
+        }
+    );
+};
+ 
+// Getting dormant blogs and sorting them in descending order
+const dormantBlogs = (req, res) => {
+
+    Blog.find({ status: 'inactive' }).sort({ createdAt: -1 }).then(inactiveBlogs => {
+
+        let totalInactiveBlogs = inactiveBlogs.length;
+
+        res, json({ status: 200, message: 'success',total : totalInactiveBlogs, inactiveBlogs : inactiveBlogs });
     },
         error => {
             console.log(error);
@@ -121,4 +139,5 @@ module.exports = {
     newBlogs,
     updateSingleBlog,
     activeBlogs,
+    dormantBlogs
 }
