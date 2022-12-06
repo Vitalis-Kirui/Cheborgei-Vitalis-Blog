@@ -25,7 +25,7 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    confirmPassword: {
+    confirmpassword: {
         type: String,
         required: true,
     },

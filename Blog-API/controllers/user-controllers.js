@@ -1,6 +1,7 @@
 const User = require('../models/user-model');
 const jwt = require('jsonwebtoken');
 const config = require('../config/config-variables');
+const bcrypt = require('bcryptjs');
 
 // Create a new User object
 const createUser = (req, res) => { 
@@ -16,16 +17,34 @@ const createUser = (req, res) => {
             res.json({status: 209, message:"Username already in use"})            
         }
         else {
-             let user = new User(userDetails);
+            let user = new User(userDetails);
+            
+            // Hasing user passwords
+            bcrypt.genSalt(10, (error, salt) => { 
+                bcrypt.hash(user.password, salt, (error, hash) => { 
 
-            user.save((error, savedUser) => { 
-                if (error) { 
-                    console.log(error);
-                }
-                else {
-                    res.json({status: 200, message:'User successfully registered.'});
-                }
-            });
+                    if (error) {
+                        console.log(error)
+                    }
+                    else {
+                        user.password = hash;
+                        user.confirmpassword = hash;
+                        
+                        // Saving the user
+                        user.save((error, savedUser) => { 
+                            if (error) { 
+                                console.log(error);
+                            }
+                            else {
+                                res.json({status: 200, message:'User successfully registered.'});
+                            }
+                        });
+
+                    }
+
+                })
+            })
+
         }
      })
 
