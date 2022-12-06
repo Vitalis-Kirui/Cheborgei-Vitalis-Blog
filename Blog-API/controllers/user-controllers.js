@@ -65,24 +65,15 @@ const loginUser = (req, res) => {
 // getting all users
 const getUsers = (req, res) => { 
 
-    // User.find((error, users) => {
-    //     if (error) {
-    //         console.log(error)
-    //     }
-    //     else {
-    //         res.json({ status: 200, message: 'Success', users: users });
-    //     }
-    //  });
-
     // Finding and sorting users per username
-    User.find().sort({ username: 1 }).then(users => {
+    User.find().sort({ username: 1 })
+        .then((users) => {
             res.json({ status: 200, message: 'Success', users: users });
         
-    },
-        error => {
+        })
+        .catch((error) => { 
             console.log(error);
-        }
-    )
+        });
 
 };
 

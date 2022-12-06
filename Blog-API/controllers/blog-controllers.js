@@ -19,69 +19,60 @@ const createBlog = (req, res) => {
 // Getting all the blogs
 const getBlogs = (req, res) => { 
 
-    // Blog.find((error, blogs) => {
-    //     if (error) {
-    //         console.error(error);
-    //     }
-    //     else {
-    //         res.json({ status: 200, message: 'success', blogs: blogs });
-    //     }
-    // })
-
     // Getting blogs and sorting them in descending order
-    Blog.find({}).sort({ createdAt: -1 }).then(blogs => {
-        res.json({status: 200, message: 'success', blogs: blogs})
-    },
-        error => {
+    Blog.find({}).sort({ createdAt: -1 })
+        .then((blogs) => {
+            res.json({ status: 200, message: 'success', blogs: blogs })
+        })
+        .catch((error) => { 
             console.log(error);
-         }
-    )
+        })
 
 };
 
 // Getting active blogs and sorting them in descending order
 const activeBlogs = (req, res) => {
 
-    Blog.find({ status: 'active' }).sort({ createdAt: -1 }).then(activeblogs => {
+    Blog.find({ status: 'active' }).sort({ createdAt: -1 })
+        .then((activeblogs) => {
 
         let totalActiveBlogs = activeBlogs.length;
 
         res, json({ status: 200, message: 'success',total : totalActiveBlogs,  activeBlogs: activeblogs });
-    },
-        error => {
-            console.log(error);
-        }
-    );
+        })
+        .catch((error) => {
+        console.log(error);
+    })
 };
  
 // Getting dormant blogs and sorting them in descending order
 const dormantBlogs = (req, res) => {
 
-    Blog.find({ status: 'inactive' }).sort({ createdAt: -1 }).then(inactiveBlogs => {
+    Blog.find({ status: 'inactive' }).sort({ createdAt: -1 })
+        .then((inactiveBlogs) => {
 
         let totalInactiveBlogs = inactiveBlogs.length;
 
         res, json({ status: 200, message: 'success',total : totalInactiveBlogs, inactiveBlogs : inactiveBlogs });
-    },
-        error => {
+        })
+        .catch((error) => {
             console.log(error);
-        }
-    );
+         })
  };
 
 // Getting new blogs based on specific period of time
 const newBlogs = (req, res) => { 
     Blog.find({ createdAt: { $lt: new Date(), $gt: new Date(new Date().getTime() - (72 * 60 * 60 * 1000)) } }).sort({
         createdAt :-1
-    }).then(blogs => {
+    })
+        .then(blogs => {
         let newTotalBlogs = blogs.length;
 
             res.json({total : newTotalBlogs, blogs : blogs});
-    },
-        error => {
+        })
+        .catch((error) => { 
             console.log(error);
-        }
-    )
+        })
 };
 
 // Getting a single blog
