@@ -9,7 +9,7 @@ router.post('/create-request', BlogRequestControllers.createBlogRequest);
 router.get('/all-requests', BlogRequestControllers.getBlogRequests);
 
 // Getting today's blogs
-router.get('/today-blogs', BlogRequestControllers.todayBlogRequest);
+router.get('/today-requests', BlogRequestControllers.todayBlogRequest);
 
 // Get a single blog route
 router.get('/blog-request/:id', BlogRequestControllers.getSingleBlogRequest);
