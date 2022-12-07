@@ -61,11 +61,27 @@ const deleteBlogRequests = (req, res) => {
             res.json({ ok: true, status: 200, message: 'Blog request deleted successfully' });
         }
     });
- };
+};
+ 
+//  Today's requests
+const todayBlogRequest = (req, res) => { 
+
+    BlogRequest.find({ createdAt: { $lt: new Date(), $gt: new Date(new Date().getTime() - (24 * 60 * 60 * 1000)) } }).sort({ createdAt: -1 })
+        .then((todayBlogs) => {
+            let totalDailyRequests = todayBlogs.length;
+
+            res.json({ total: totalDailyRequests, blogRequests: todayBlogs })
+        })
+        .catch((error) => {
+            console.log(error)
+         })
+
+};
 
 module.exports = {
     createBlogRequest,
     getBlogRequests,
     getSingleBlogRequest,
-    deleteBlogRequests
+    deleteBlogRequests,
+    todayBlogRequest,
 }

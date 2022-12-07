@@ -8,6 +8,9 @@ router.post('/create-request', BlogRequestControllers.createBlogRequest);
 // Get all blog requests
 router.get('/all-requests', BlogRequestControllers.getBlogRequests);
 
+// Getting today's blogs
+router.get('/today-blogs', BlogRequestControllers.todayBlogRequest);
+
 // Get a single blog route
 router.get('/blog-request/:id', BlogRequestControllers.getSingleBlogRequest);
 

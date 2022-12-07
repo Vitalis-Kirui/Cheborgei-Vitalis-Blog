@@ -14,7 +14,7 @@ const createMessage = (req, res) => {
         }
         else {
 
-            res.json({message : 'success'});
+            res.json({message : 'Message saved successfully'});
         }
 
     })
