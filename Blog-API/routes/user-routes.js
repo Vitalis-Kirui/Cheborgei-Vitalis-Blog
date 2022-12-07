@@ -11,6 +11,9 @@ router.get('/login', userControllers.loginUser);
 // Getting all users route
 router.get('/all-users', userControllers.getUsers);
 
+// User profile route
+router.get('/user-profile', userControllers.userProfile);
+
 // Getting a single user route
 router.get('/user/:id', userControllers.getSingleUser);
 

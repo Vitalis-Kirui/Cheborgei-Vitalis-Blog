@@ -17,7 +17,10 @@ const blogRequestSchema = new Schema({
     status: {
         type: String,
     },
-    owner: {
+    ownerId: {
+        type: String
+    },
+    ownerNames: {
         type: String
     }
 });

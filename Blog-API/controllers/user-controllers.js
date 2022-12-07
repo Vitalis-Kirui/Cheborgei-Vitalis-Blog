@@ -80,6 +80,61 @@ const loginUser = (req, res) => {
     })
 
 };
+
+// User profile
+const userProfile = (req, res) => { 
+
+    // Checking if req if from logged in user
+    if (!req.headers.authorization) {
+        res.json({status: 401, message:"Unauthorized request"});
+    }
+
+    // Extracting token
+    let token = req.headers.authorization.split(" ")[1];
+
+    // Checking if token is of null value
+    if (token == null) {
+        res.json({status: 401, message:"Unauthorized request"});
+    };
+    
+    // verifying the token
+    let payload = jwt.verify(token, config.secrectKey);
+
+    // If there is no payload
+    if (!payload) { 
+        res.json({status: 401, message:"Unauthorized request"});
+    }
+
+    else {
+        let userId = payload.subject;
+
+        // finding user by id
+        User.findById(userId, (error, user) => {
+            if (error) {
+                console.log(error);
+            }
+            else {
+                
+                // sending back user details
+                res.json({
+                    status: 200,
+                    user: {
+                        firstname: user.firstname,
+                        lastname: user.lastname,
+                        username: user.username,
+                        bio: user.bio,
+                        email: user.email,
+                        profileimage: user.profileimage,
+                        subscription : user.subscribe,
+                    }
+                });
+            }
+        })
+    }
+
+};
+
+// Updating user profile
  
 // getting all users
 const getUsers = (req, res) => { 
@@ -114,5 +169,6 @@ module.exports = {
     createUser,
     loginUser,
     getUsers,
-    getSingleUser
+    getSingleUser,
+    userProfile
 }
