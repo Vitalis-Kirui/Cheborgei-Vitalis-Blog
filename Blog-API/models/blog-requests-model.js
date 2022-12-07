@@ -13,6 +13,12 @@ const blogRequestSchema = new Schema({
     blog: {
         type: String,
         required: true
+    },
+    status: {
+        type: String,
+    },
+    owner: {
+        type: String
     }
 });
 
