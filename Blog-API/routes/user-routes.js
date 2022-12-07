@@ -14,6 +14,9 @@ router.get('/all-users', userControllers.getUsers);
 // User profile route
 router.get('/user-profile', userControllers.userProfile);
 
+// Update profile route
+router.put('/update-profile', userControllers.updateUserProfile);
+
 // Getting a single user route
 router.get('/user/:id', userControllers.getSingleUser);
 

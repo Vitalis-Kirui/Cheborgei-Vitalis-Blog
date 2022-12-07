@@ -135,6 +135,57 @@ const userProfile = (req, res) => {
 };
 
 // Updating user profile
+const updateUserProfile = (req, res) => { 
+
+    // Checking if req if from logged in user
+    if (!req.headers.authorization) {
+        res.json({status: 401, message:"Unauthorized request"});
+    }
+
+    // Extracting token
+    let token = req.headers.authorization.split(" ")[1];
+
+    // Checking if token is of null value
+    if (token == null) {
+        res.json({status: 401, message:"Unauthorized request"});
+    };
+    
+    // verifying the token
+    let payload = jwt.verify(token, config.secrectKey);
+
+    // If there is no payload
+    if (!payload) {
+        res.json({ status: 401, message: "Unauthorized request" });
+    }
+
+    else {
+        let userId = payload.subject;
+
+        // New details
+        let newDetails = req.body;
+
+        User.findByIdAndUpdate(userId, newDetails)
+            .then((updatedUser) => { 
+                // sending back user details
+                res.json({
+                    status: 200,
+                    user: {
+                        firstname: updatedUser.firstname,
+                        lastname: updatedUser.lastname,
+                        username: updatedUser.username,
+                        bio: updatedUser.bio,
+                        email: updatedUser.email,
+                        profileimage: updatedUser.profileimage,
+                        subscription : updatedUser.subscribe,
+                    }
+                });
+            })
+            .catch((error) => {
+            console.log(error);
+        })
+    }
+
+};
  
 // getting all users
 const getUsers = (req, res) => { 
@@ -170,5 +221,6 @@ module.exports = {
     loginUser,
     getUsers,
     getSingleUser,
-    userProfile
+    userProfile,
+    updateUserProfile
 }
