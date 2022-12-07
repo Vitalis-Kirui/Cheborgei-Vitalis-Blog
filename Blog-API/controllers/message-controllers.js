@@ -1,3 +1,4 @@
+const { json } = require('body-parser');
 const Message = require('../models/message-model');
 
 // Create a new message
@@ -36,6 +37,16 @@ const getMessages = (req, res) => {
         })
 };
 
+// Getting todays messages
+const dailyMessages = (req, res) => { 
+    Message.find({ createdAt: { $lt: new Date(), $gt: new Date(new Date().getTime() - (24 * 60 * 60 * 1000)) } }).sort({ createdAt: -1 })
+        .then((dailyMessages) => {
+            let totalDailyMessages = dailyMessages.length;
+
+            res,json({total : totalDailyMessages, messages: dailyMessages})
+            })
+};
+
 // Getting a single message
 const getSingleMessage = (req, res) => { 
     const id = req.params.id;
@@ -69,5 +80,6 @@ module.exports = {
     createMessage,
     getMessages,
     getSingleMessage,
-    deleteMessage
+    deleteMessage,
+    dailyMessages
 };

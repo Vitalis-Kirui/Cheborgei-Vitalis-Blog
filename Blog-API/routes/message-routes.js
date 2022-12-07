@@ -8,6 +8,9 @@ router.post('/create-message', messagesControllers.createMessage);
 // Get all the messages
 router.get('/all-messages', messagesControllers.getMessages);
 
+// Getting daily messages
+router.get('/today-messages', messagesControllers.dailyMessages);
+
 // Getting a single message
 router.get('/message/:id', messagesControllers.getSingleMessage);
 
