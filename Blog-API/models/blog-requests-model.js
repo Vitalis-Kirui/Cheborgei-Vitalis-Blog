@@ -20,7 +20,7 @@ const blogRequestSchema = new Schema({
     ownerId: {
         type: String
     },
-    ownerNames: {
+    ownernames: {
         type: String
     }
 });

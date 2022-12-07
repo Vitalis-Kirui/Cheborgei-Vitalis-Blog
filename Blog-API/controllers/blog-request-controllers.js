@@ -1,20 +1,61 @@
 const BlogRequest = require('../models/blog-requests-model')
+const User = require('../models/user-model');
 
 // Creating a new blog request
 const createBlogRequest = (req, res) => { 
 
-    const requestData = req.body;
+    // Checking if req if from logged in user
+    if (!req.headers.authorization) {
+        res.json({status: 401, message:"Unauthorized request"});
+    }
 
-    const newRequest = new BlogRequest(requestData);
+    // Extracting token
+    let token = req.headers.authorization.split(" ")[1];
 
-    newRequest.save((error, savedBlogRequest) => { 
-        if (error) {
-            console.log(error);
-        }
-        else {
-            res.json({ok: true, status: 200, requests: savedBlogRequest})
-        }
-    });
+    // Checking if token is of null value
+    if (token == null) {
+        res.json({status: 401, message:"Unauthorized request"});
+    };
+    
+    // verifying the token
+    let payload = jwt.verify(token, config.secrectKey);
+
+    // If there is no payload
+    if (!payload) {
+        res.json({ status: 401, message: "Unauthorized request" });
+    }
+
+    else {
+        let userId = payload.subject;
+
+        User.findById(userId)
+            .then((user) => {
+
+                const requestData = {
+                    title: request.body.title,
+                    category: request.body.category,
+                    blog: request.body.blog,
+                    status: 'Under review',
+                    ownerId: userId,
+                    ownernames:user.firstname +' ' + user.lastname,
+                };
+
+                const newRequest = new BlogRequest(requestData);
+
+                newRequest.save((error, savedBlogRequest) => { 
+                    if (error) {
+                        console.log(error);
+                    }
+                    else {
+                        res.json({ok: true, status: 200, requests: savedBlogRequest})
+                    }
+                });
+            })
+            .catch((error) => { 
+                console.log(error);
+            })
+
+    }
 
 };
 
