@@ -119,10 +119,48 @@ const todayBlogRequest = (req, res) => {
 
 };
 
+// Fetching a single user blog requests
+const profileBlogRequests = (req, res) => { 
+    // Checking if req if from logged in user
+    if (!req.headers.authorization) {
+        res.json({status: 401, message:"Unauthorized request"});
+    }
+
+    // Extracting token
+    let token = req.headers.authorization.split(" ")[1];
+
+    // Checking if token is of null value
+    if (token == null) {
+        res.json({status: 401, message:"Unauthorized request"});
+    };
+    
+    // verifying the token
+    let payload = jwt.verify(token, config.secrectKey);
+
+    // If there is no payload
+    if (!payload) {
+        res.json({ status: 401, message: "Unauthorized request" });
+    }
+
+    else {
+        let owner = payload.subject;
+
+        BlogRequest.find({ ownerId: owner }).sort({ createdAt: -1 })
+            .then((userRequests) => {
+                res.json({userRequests: userRequests})
+            })
+            .catch((error) => { 
+                console.log(error);
+            });
+
+    }
+};
+
 module.exports = {
     createBlogRequest,
     getBlogRequests,
     getSingleBlogRequest,
     deleteBlogRequests,
     todayBlogRequest,
+    profileBlogRequests
 }

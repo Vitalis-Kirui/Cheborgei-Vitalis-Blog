@@ -18,11 +18,15 @@ const blogRequestSchema = new Schema({
         type: String,
     },
     ownerId: {
-        type: String
+        type: String,
+        required: true
     },
     ownernames: {
-        type: String
+        type: String,
+        required: true
     }
-});
+},
+    {timestamps: true}
+);
 
 module.exports = mongoose.model('Blog-request', blogRequestSchema, 'blog-requests');
