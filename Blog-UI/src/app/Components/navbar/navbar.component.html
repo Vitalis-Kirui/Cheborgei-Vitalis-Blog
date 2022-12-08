@@ -27,12 +27,16 @@
                         <a class="nav-link" routerLink="contact-me" routerLinkActive="active">Contact Me</a>
                         <a class="nav-link" routerLink="about-blog" routerLinkActive="active">About Blog</a>
                         <a class="nav-link" routerLink="authentications/login" routerLinkActive="active"
+                        *ngIf="!service.loggedIn()"
                             >Login</a>
                         <a class="nav-link" routerLink="authentications/register" routerLinkActive="active"
+                        *ngIf="!service.loggedIn()"
                             >Register</a>
                         <a class="nav-link" routerLink="authentications/account" routerLinkActive="active"
+                        *ngIf="service.loggedIn()"
                             >Account</a>
-                        <a class="nav-link" style="cursor: pointer;"
+                        <a class="nav-link" style="cursor: pointer;" (click)="logoutUser()"
+                        *ngIf="service.loggedIn()"
                             >Logout</a>
                     </li>
                 </ul>
