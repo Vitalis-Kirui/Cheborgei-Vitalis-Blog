@@ -13,5 +13,10 @@ export class AuthenticationService {
   registerUser(user: any) { 
     return this.http.post<any>(environment.registerUrl, user)
   };
-  
+
+  // Login User
+  loginUser(user: any) { 
+    return this.http.post<any>(environment.loginUrl, user);
+  };
+
 }
