@@ -38,4 +38,9 @@ export class AuthenticationService {
     return this.http.get(environment.userProfileUrl)
   };
 
+  // Updating user profile
+  updateUserProfile(user: any) { 
+    return this.http.put<any>(environment.updateUserUrl, user);
+  };
+
 }

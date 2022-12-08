@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthenticationService } from 'src/app/Services/authentication.service';
 import { forbiddenTermsValidator } from 'src/app/Validators/forbidden-terms';
 
 @Component({
@@ -18,7 +19,10 @@ export class UpdateDetailsComponent implements OnInit {
   // Email regex pattern
   emailRegEx = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
 
-  constructor(private service: FormBuilder) { }
+  // Existing user details
+  existingUserDetails: any =  {};
+
+  constructor(private service: FormBuilder, private authService : AuthenticationService) { }
 
   // GETTER FUNCTIONS
   // First name
@@ -80,6 +84,27 @@ export class UpdateDetailsComponent implements OnInit {
         }
         email?.updateValueAndValidity();
       })
+    
+  // Fetching existing data and patching them to the form
+    this.authService.getUserProfile()
+      .subscribe((data) => {
+        this.existingUserDetails = data.user;
+        console.log(data);
+
+        // Patching value to the form
+            this.updateForm.patchValue({
+              firstname: this.existingUserDetails.firstname,
+              lastname: this.existingUserDetails.lastname,
+              username: this.existingUserDetails.username,
+              phonenumber: this.existingUserDetails.phonenumber,
+              email: this.existingUserDetails.email,
+              subscribe: this.existingUserDetails.subscribe
+            });
+      },
+        (error) => {
+          console.log(error);
+        }
+      )
 
   }
 
@@ -88,5 +113,16 @@ export class UpdateDetailsComponent implements OnInit {
     
     console.log(this.updateForm.value);
 
+    // Updating data
+    this.authService.updateUserProfile(this.updateForm.value)
+      .subscribe(data => {
+          console.log("User profile updated successfully");
+      },
+        error => {
+          console.log(error);
+        });
+    
+    // Reseting the update form
+    this.updateForm.reset();
   }
 }
