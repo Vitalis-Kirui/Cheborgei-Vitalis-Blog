@@ -45,6 +45,10 @@ const dailyMessages = (req, res) => {
 
             res,json({total : totalDailyMessages, messages: dailyMessages})
             })
+
+        .catch((error) => {
+            console.log(error);
+    })
 };
 
 // Getting a single message
