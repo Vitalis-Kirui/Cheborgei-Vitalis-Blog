@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -7,7 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthenticationService {
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient, private router : Router) { }
 
   // Register functionality
   registerUser(user: any) { 
@@ -17,6 +18,18 @@ export class AuthenticationService {
   // Login User
   loginUser(user: any) { 
     return this.http.post<any>(environment.loginUrl, user);
+  };
+
+  // Checking login status
+  loggedIn() {
+    return !!localStorage.getItem('token');
+  }
+
+  // Logging out User
+  logoutUser() { 
+    localStorage.removeItem('token');
+
+    this.router.navigate(['/']);
   };
 
 }
