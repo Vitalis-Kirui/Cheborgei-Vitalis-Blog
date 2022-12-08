@@ -1,6 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/Services/authentication.service';
 import { forbiddenTermsValidator } from 'src/app/Validators/forbidden-terms';
 import { passwordMatchValidator } from 'src/app/Validators/password-match';
 
@@ -20,7 +22,7 @@ export class RegisterComponent implements OnInit {
   // User subscription
   userSubscribed: boolean = false;
 
-  constructor(private router: Router, private fbService : FormBuilder) { }
+  constructor(private router: Router, private fbService : FormBuilder, private registerService: AuthenticationService) { }
   
   // Swiching user to login page
   switchLogin() {
@@ -107,6 +109,24 @@ export class RegisterComponent implements OnInit {
   // Submit function
   submitDetails() {
     console.log(this.registrationForm.value)
+
+    // Passing date to register endpoint
+    this.registerService.registerUser(this.registrationForm.value)
+      .subscribe((data) => {
+        console.log(data);
+      },
+        error => {
+          console.log(error);
+
+          // Whether error was already registered
+          if (error instanceof HttpErrorResponse) {
+            if (error.status === 209) {
+              console.log("User already registered")
+            }
+          }
+        }
+      )
+
   };
 
 }

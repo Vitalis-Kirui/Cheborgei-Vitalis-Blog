@@ -1,4 +1,3 @@
-const { json } = require('body-parser');
 const Message = require('../models/message-model');
 
 // Create a new message

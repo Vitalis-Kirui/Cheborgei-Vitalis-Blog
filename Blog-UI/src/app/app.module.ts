@@ -12,6 +12,7 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BlogDetailsComponent } from './Components/blog-details/blog-details.component';
 import { ArchirvesComponent } from './Components/archirves/archirves.component';
+import  {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ArchirvesComponent } from './Components/archirves/archirves.component';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],
