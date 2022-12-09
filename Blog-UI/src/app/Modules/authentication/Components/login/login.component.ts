@@ -41,8 +41,7 @@ export class LoginComponent implements OnInit {
 
   // Login function
   loginUser() {
-    console.log(this.loginForm.value)
-
+    
     // Passing data to login endpoint
     this.loginService.loginUser(this.loginForm.value)
       .subscribe((data) => {
