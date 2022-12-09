@@ -54,9 +54,9 @@ const createUser = (req, res) => {
 const loginUser = (req, res) => {
     let userDetails = req.body;
 
-    let userUsename = userDetails.username;
+    let userUsername = userDetails.username;
     
-    User.findOne({ username: userUsename }, (error, user) => {
+    User.findOne({ username: userUsername }, (error, user) => {
         if (error) {
             console.log(error);
         }
