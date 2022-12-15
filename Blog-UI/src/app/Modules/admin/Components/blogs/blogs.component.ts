@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-blogs',
@@ -7,12 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogsComponent implements OnInit {
 
+  // Blog form
+  blogForm !: FormGroup;
+
   // Categories
   categories: any = ['General Software Engineering', 'MEAN Stack', 'Angular', 'React Js', 'MongoDB', 'NodeJS', 'ExpressJS','Python','Others']
 
-  constructor() { }
+  constructor( private fbService : FormBuilder) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    // Form model
+    this.blogForm = this.fbService.group({
+      image: [''],
+      title: [''],
+      category: [''],
+      description: [''],
+      status: ['']
+    })
+  }
+
+  // Submitting the blog
+  submitBlog() {
+    console.log(this.blogForm.value);
   }
 
 }
