@@ -12,7 +12,8 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BlogDetailsComponent } from './Components/blog-details/blog-details.component';
 import { ArchirvesComponent } from './Components/archirves/archirves.component';
-import  {HttpClientModule} from '@angular/common/http';
+import  {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { TokenInterceptorService } from './Services/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,12 @@ import  {HttpClientModule} from '@angular/common/http';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+    
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
