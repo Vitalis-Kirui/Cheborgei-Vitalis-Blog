@@ -103,7 +103,7 @@ const userProfile = (req, res) => {
     let token = req.headers.authorization.split(' ')[1];
 
     // Checking if token is of null value
-    if (token == null) {
+    if (token === "null") {
         res.json({status: 401, message:"Unauthorized request"});
     };
     

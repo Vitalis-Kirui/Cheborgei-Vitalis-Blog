@@ -26,6 +26,11 @@ export class AuthenticationService {
     return !!localStorage.getItem('token');
   }
 
+  // Getting token from local storage
+  getToken() { 
+    return localStorage.getItem('token');
+  };
+
   // Logging out User
   logoutUser() { 
     localStorage.removeItem('token');
