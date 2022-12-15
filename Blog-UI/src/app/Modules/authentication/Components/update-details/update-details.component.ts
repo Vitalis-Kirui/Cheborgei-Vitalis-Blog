@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/Services/authentication.service';
 import { forbiddenTermsValidator } from 'src/app/Validators/forbidden-terms';
 
@@ -22,7 +23,7 @@ export class UpdateDetailsComponent implements OnInit {
   // Existing user details
   existingUserDetails: any =  {};
 
-  constructor(private service: FormBuilder, private authService : AuthenticationService) { }
+  constructor(private service: FormBuilder, private authService : AuthenticationService, private router : Router) { }
 
   // GETTER FUNCTIONS
   // First name
@@ -116,7 +117,9 @@ export class UpdateDetailsComponent implements OnInit {
     // Updating data
     this.authService.updateUserProfile(this.updateForm.value)
       .subscribe(data => {
-          console.log("User profile updated successfully");
+        console.log("User profile updated successfully");
+        
+        this.router.navigate(['/authentications/account']);
       },
         error => {
           console.log(error);
