@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RouteGuard } from 'src/app/Guards/route.guard';
 import { AccountComponent } from './Components/account/account.component';
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
@@ -10,9 +11,9 @@ import { UpdateDetailsComponent } from './Components/update-details/update-detai
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'account', component: AccountComponent },
-  { path: 'update-details', component: UpdateDetailsComponent },
-  { path: 'change-password', component: ChangePasswordComponent },
+  { path: 'account', component: AccountComponent, canActivate :[RouteGuard] },
+  { path: 'update-details', component: UpdateDetailsComponent, canActivate:[RouteGuard] },
+  { path: 'change-password', component: ChangePasswordComponent, canActivate:[RouteGuard] },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: '', redirectTo:'register', pathMatch:'full' }
 ];
