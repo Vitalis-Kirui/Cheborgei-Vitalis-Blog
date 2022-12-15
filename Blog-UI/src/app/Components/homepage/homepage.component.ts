@@ -25,6 +25,18 @@ export class HomepageComponent implements OnInit {
     });
   }
 
+    // Changes in the dropdown list
+  changeCategory(event: any) {
+    this.category?.setValue(event.target.value, {
+      onlySelf: true,
+    });
+  }
+  
+  // Access formcontrols getter
+  get category() {
+    return this.suggestionForm.get('category');
+  }
+
   submitSuggestion() {
     console.log(this.suggestionForm.value)
 
