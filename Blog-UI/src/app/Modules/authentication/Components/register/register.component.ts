@@ -113,7 +113,8 @@ export class RegisterComponent implements OnInit {
     // Passing date to register endpoint
     this.registerService.registerUser(this.registrationForm.value)
       .subscribe((data) => {
-        console.log(data);
+        console.log("User registration successful");
+        this.registrationForm.reset();
       },
         error => {
           console.log(error);
