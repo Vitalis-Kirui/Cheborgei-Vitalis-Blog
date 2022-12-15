@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-blogs',
@@ -20,11 +20,23 @@ export class BlogsComponent implements OnInit {
     // Form model
     this.blogForm = this.fbService.group({
       image: [''],
-      title: [''],
-      category: [''],
-      description: [''],
-      status: ['']
+      title: ['', [Validators.required]],
+      category: ['', [Validators.required]],
+      description: ['',[Validators.required]],
+      status: ['', [Validators.required]]
     })
+  }
+
+  // Changes in the dropdown list
+  changeCategory(event: any) {
+    this.category?.setValue(event.target.value, {
+      onlySelf: true,
+    });
+  }
+  
+  // Access formcontrols getter
+  get category() {
+    return this.blogForm.get('category');
   }
 
   // Submitting the blog

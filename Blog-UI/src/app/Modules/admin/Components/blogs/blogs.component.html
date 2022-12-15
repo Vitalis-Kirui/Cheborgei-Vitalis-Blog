@@ -102,6 +102,7 @@
                     <div class="mt-3 mb-1">
                         <h5 class="mt-3 mb-1"><strong>Select category</strong></h5>
                         <select class="custom-select"
+                        (change)="changeCategory($event)"
                         name="category" formControlName="category"
                         >
                             <option selected disabled>Choose Category</option>
