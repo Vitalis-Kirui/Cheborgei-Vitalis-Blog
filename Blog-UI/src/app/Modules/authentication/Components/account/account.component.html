@@ -1,1 +1,37 @@
-<p>account works!</p>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-8 mx-auto my-5 userDetails pt-5">
+
+            <!--Heading  -->
+            <div class=" heading">
+                <h3 class="text-success text-center" *ngIf="userDetails.username"><strong>{{userDetails.firstname}} {{userDetails.lastname}}</strong></h3>
+                <hr>
+                <p *ngIf="userDetails.firstname">Hello <strong>{{userDetails.firstname}}</strong>, here are your account details</p>
+            </div>
+
+            <!-- Data -->
+
+            <div class="data">
+
+                <p *ngIf="userDetails.firstname"><strong>First name : </strong> <span class="text-success">{{userDetails.firstname}}</span></p>
+                <p *ngIf="userDetails.lastname"><strong>Last name : </strong> <span class="text-success">{{userDetails.lastname}}</span></p>
+                <p *ngIf="userDetails.username"><strong>Username : </strong> <span class="text-success">{{userDetails.username}}</span></p>
+                <p *ngIf="userDetails.phonenumber"><strong>Username : </strong> <span class="text-success">{{userDetails.phonenumber}}</span>
+                </p>
+                <p *ngIf="userDetails.email"><strong>Email : </strong> <span class="text-success">{{userDetails.email}}</span></p>
+                <p *ngIf="userDetails.bio"><strong>Bio : </strong> <span class="text-success">{{userDetails.bio}}</span></p>
+                <p *ngIf="userDetails.subscription"><strong>Newsletter Subscription : </strong> <span class="text-success">{{userDetails.subscription}}</span></p>
+
+            </div>
+
+            <!-- Update button -->
+            <div class="update text-center pt-3">
+                <p>Do you wish to update your account details?</p>
+                <button class="btn btn-primary m-3" type="button" (click)="updateDetails()">Update</button>
+            </div>
+
+        </div>
+    </div>
+
+</div>
