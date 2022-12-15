@@ -84,7 +84,7 @@ const loginUser = (req, res) => {
                 let payload = { subject: user._id }
                 let token = jwt.sign(payload, config.secrectKey)
 
-                res.json({message:"Login successful", token: token})
+                res.json({message:"Login successful", token: token, userID:user._id})
             }
         }
     })
