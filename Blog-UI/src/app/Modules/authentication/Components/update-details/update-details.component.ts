@@ -60,7 +60,7 @@ export class UpdateDetailsComponent implements OnInit {
     this.updateForm = this.service.group({
       firstname: ['', [Validators.minLength(3), forbiddenTermsValidator(/admin/), forbiddenTermsValidator(/porn/), forbiddenTermsValidator(/nameless/)]],
       lastname: ['', [Validators.minLength(3), forbiddenTermsValidator(/admin/), forbiddenTermsValidator(/porn/), forbiddenTermsValidator(/nameless/)]],
-      username: ['', [Validators.minLength(3), forbiddenTermsValidator(/admin/), forbiddenTermsValidator(/porn/), forbiddenTermsValidator(/nameless/)]],
+      username: [{value : null, disabled: true}, [Validators.minLength(3), forbiddenTermsValidator(/admin/), forbiddenTermsValidator(/porn/), forbiddenTermsValidator(/nameless/)]],
       phonenumber: ['', [Validators.minLength(10)]],
       email: ['', [Validators.pattern(this.emailRegEx)]],
       subscribe: false,
