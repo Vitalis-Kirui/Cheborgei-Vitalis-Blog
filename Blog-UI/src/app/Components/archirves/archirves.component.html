@@ -16,83 +16,17 @@
 
     <!-- Blogs -->
     <div class="row blogsRow">
-        <div class="col-md-4 mx-auto">
+        <div class="col-md-4 mx-auto" *ngFor="let blog of allBlogs">
             <ul>
-                <li><strong>Choice of Frontend Frameworks | <span class="category">Angular</span></strong></li>
+                <li><strong>{{blog.title}} | <span class="category">{{blog.category}}</span></strong></li>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti enim ipsum est optio.
-                    Quo architecto, nesciunt sapiente tenetur laboriosam ea quibusdam amet quia
-                    molestias necessitatibus, minus dolorum repellendus repudiandae doloribus.
+                    {{blog.description}}
                 </p>
+                <p class="text-primary">{{blog.createdAt | date}}</p>
                 <button class="btn btn-primary m-1">Open</button>
                 <button class="btn btn-success  m-1">Star</button>
             </ul>
-        </div>
-
-        <div class="col-md-4 mx-auto">
-            <ul>
-                <li><strong>Choice of Frontend Frameworks | <span class="category">Angular</span></strong></li>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti enim ipsum est optio.
-                    Quo architecto, nesciunt sapiente tenetur laboriosam ea quibusdam amet quia
-                    molestias necessitatibus, minus dolorum repellendus repudiandae doloribus.
-                </p>
-                <button class="btn btn-primary m-1">Open</button>
-                <button class="btn btn-success  m-1">Star</button>
-            </ul>
-        </div>
-
-        <div class="col-md-4 mx-auto">
-            <ul>
-                <li><strong>Choice of Frontend Frameworks | <span class="category">Angular</span></strong></li>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti enim ipsum est optio.
-                    Quo architecto, nesciunt sapiente tenetur laboriosam ea quibusdam amet quia
-                    molestias necessitatibus, minus dolorum repellendus repudiandae doloribus.
-                </p>
-                <button class="btn btn-primary m-1">Open</button>
-                <button class="btn btn-success  m-1">Star</button>
-            </ul>
-        </div>
-
-        <div class="col-md-4 mx-auto">
-            <ul>
-                <li><strong>Choice of Frontend Frameworks | <span class="category">Angular</span></strong></li>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti enim ipsum est optio.
-                    Quo architecto, nesciunt sapiente tenetur laboriosam ea quibusdam amet quia
-                    molestias necessitatibus, minus dolorum repellendus repudiandae doloribus.
-                </p>
-                <button class="btn btn-primary m-1">Open</button>
-                <button class="btn btn-success  m-1">Star</button>
-            </ul>
-        </div>
-
-        <div class="col-md-4 mx-auto">
-            <ul>
-                <li><strong>Choice of Frontend Frameworks | <span class="category">Angular</span></strong></li>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti enim ipsum est optio.
-                    Quo architecto, nesciunt sapiente tenetur laboriosam ea quibusdam amet quia
-                    molestias necessitatibus, minus dolorum repellendus repudiandae doloribus.
-                </p>
-                <button class="btn btn-primary m-1">Open</button>
-                <button class="btn btn-success  m-1">Star</button>
-            </ul>
-        </div>
-
-        <div class="col-md-4 mx-auto">
-            <ul>
-                <li><strong>Choice of Frontend Frameworks | <span class="category">Angular</span></strong></li>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti enim ipsum est optio.
-                    Quo architecto, nesciunt sapiente tenetur laboriosam ea quibusdam amet quia
-                    molestias necessitatibus, minus dolorum repellendus repudiandae doloribus.
-                </p>
-                <button class="btn btn-primary m-1">Open</button>
-                <button class="btn btn-success  m-1">Star</button>
-            </ul>
-        </div>
+        </div>              
 
     </div>
 
