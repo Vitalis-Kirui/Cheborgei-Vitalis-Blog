@@ -1,1 +1,21 @@
-<p>blog-details works!</p>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-6 mx-auto my-5 pt-5">
+
+            <!-- Heading -->
+            <div class="text-center text-success">
+                <h2><strong>{{blog.title}}</strong></h2>
+                <hr>
+            </div>
+
+            <div class="details">
+                <p><strong>{{blog.category}}</strong></p>
+                <p><strong>{{blog.description}}</strong></p>
+                <p class="text-success"><strong>{{blog.createdAt | date | uppercase}}</strong></p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
