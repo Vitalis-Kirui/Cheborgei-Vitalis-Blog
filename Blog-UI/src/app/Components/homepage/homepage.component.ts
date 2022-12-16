@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BlogsService } from 'src/app/Services/blogs.service';
 
 @Component({
   selector: 'app-homepage',
@@ -12,17 +13,30 @@ export class HomepageComponent implements OnInit {
   categories: any = ['General Software Engineering', 'MEAN Stack', 'Angular', 'React Js', 'MongoDB', 'NodeJS', 'ExpressJS','Python','Others']
 
   // Suggestion form
-  suggestionForm! : FormGroup;
+  suggestionForm!: FormGroup;
+  
+  // Active blogs array
+  activeBlogs : any = [];
 
-  constructor(private fbService : FormBuilder) { }
+  constructor(private fbService : FormBuilder, private blogService: BlogsService) { }
 
   ngOnInit() {
 
+    // Form model
     this.suggestionForm = this.fbService.group({
       title: ['', [Validators.required]],
       category: ['', [Validators.required]],
       blog: ['', [Validators.required]],
     });
+
+    // Active blogs
+    this.blogService.getActiveBlogs()
+      .subscribe(data => {
+        this.activeBlogs = data.activeBlogs;
+        console.log(data);
+          
+        })
+
   }
 
     // Changes in the dropdown list

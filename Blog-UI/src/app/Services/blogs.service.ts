@@ -14,5 +14,12 @@ export class BlogsService {
   getAllBlogs(): Observable<any>{
     return this.http.get(environment.getAllBlogsUrl)
   }
+
+  // Getting active blogs
+  getActiveBlogs(): Observable<any>{
+    return this.http.get(environment.getActiveBlogsUrl)
+  }
+
+  // Getting last 24 hours blogs
   
 }

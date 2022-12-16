@@ -20,7 +20,7 @@ const createBlog = (req, res) => {
 const getBlogs = (req, res) => { 
 
     // Getting blogs and sorting them in descending order
-    Blog.find({}).sort({ createdAt: -1 })
+    Blog.find().sort({ title: 1 })
         .then((blogs) => {
             res.json({ status: 200, message: 'success', blogs: blogs })
         })
@@ -38,7 +38,7 @@ const activeBlogs = (req, res) => {
 
         let totalActiveBlogs = activeBlogs.length;
 
-        res, json({ status: 200, message: 'success',total : totalActiveBlogs,  activeBlogs: activeblogs });
+        res.json({ status: 200, message: 'success',total : totalActiveBlogs,  activeBlogs: activeblogs });
         })
         .catch((error) => {
         console.log(error);
