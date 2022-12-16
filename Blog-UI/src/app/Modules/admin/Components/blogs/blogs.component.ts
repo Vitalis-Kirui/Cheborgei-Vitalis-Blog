@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/Services/admin.service';
+import { BlogsService } from 'src/app/Services/blogs.service';
 
 @Component({
   selector: 'app-blogs',
@@ -12,10 +13,13 @@ export class BlogsComponent implements OnInit {
   // Blog form
   blogForm !: FormGroup;
 
+  // Running blogs array
+  runningBlogs : any = [];
+
   // Categories
   categories: any = ['General Software Engineering', 'MEAN Stack', 'Angular', 'React Js', 'MongoDB', 'NodeJS', 'ExpressJS','Python','Others']
 
-  constructor( private fbService : FormBuilder, private adminService: AdminService) { }
+  constructor( private fbService : FormBuilder, private adminService: AdminService, private blogService: BlogsService) { }
 
   ngOnInit() {
     // Form model
@@ -26,6 +30,18 @@ export class BlogsComponent implements OnInit {
       description: ['',[Validators.required]],
       status: ['', [Validators.required]]
     })
+
+    // Getting running blogs
+    this.blogService.getActiveBlogs()
+      .subscribe(data => {
+        this.runningBlogs = data.activeBlogs;
+        console.log(data)
+      },
+        error => {
+          console.log(error);
+        }
+      )
+
   }
 
   // Changes in the dropdown list
