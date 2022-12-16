@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BlogsService } from 'src/app/Services/blogs.service';
 
 @Component({
@@ -10,8 +11,8 @@ export class ArchirvesComponent implements OnInit {
 
   // Blogs array
   allBlogs: any = [];
-
-  constructor(private blogService : BlogsService) { }
+  
+  constructor(private blogService : BlogsService, private router : Router) { }
 
   ngOnInit() {
 
@@ -25,5 +26,10 @@ export class ArchirvesComponent implements OnInit {
         })
 
   }
+
+    // Open blog
+  openBlog(id: any) {
+    this.router.navigate(['/blogs/blog/',id]);
+   }
 
 }

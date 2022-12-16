@@ -23,7 +23,7 @@
                     {{blog.description}}
                 </p>
                 <p class="text-primary">{{blog.createdAt | date}}</p>
-                <button class="btn btn-primary m-1">Open</button>
+                <button class="btn btn-primary m-1" type="button" (click)="openBlog(blog._id)">Join</button>
                 <button class="btn btn-success  m-1">Star</button>
             </ul>
         </div>              
