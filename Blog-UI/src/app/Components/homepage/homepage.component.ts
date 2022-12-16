@@ -18,6 +18,9 @@ export class HomepageComponent implements OnInit {
   // Active blogs array
   activeBlogs : any = [];
 
+  // New blogs array
+  newBlogs : any = [];
+
   constructor(private fbService : FormBuilder, private blogService: BlogsService) { }
 
   ngOnInit() {
@@ -35,7 +38,22 @@ export class HomepageComponent implements OnInit {
         this.activeBlogs = data.activeBlogs;
         console.log(data);
           
-        })
+      },
+        error => {
+          console.log(error);
+        }
+    )
+    
+    // Fetching new blogs
+    this.blogService.getNewBlogs()
+      .subscribe(data => {
+        this.newBlogs = data.blogs;
+        console.log(data);
+      },
+        error => {
+          console.log(error);
+        }
+      )
 
   }
 

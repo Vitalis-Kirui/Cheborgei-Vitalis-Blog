@@ -62,7 +62,7 @@ const dormantBlogs = (req, res) => {
 
 // Getting new blogs based on specific period of time
 const newBlogs = (req, res) => { 
-    Blog.find({ createdAt: { $lt: new Date(), $gt: new Date(new Date().getTime() - (72 * 60 * 60 * 1000)) } }).sort({
+    Blog.find({status : "active", createdAt: { $lt: new Date(), $gt: new Date(new Date().getTime() - (72 * 60 * 60 * 1000)) } }).sort({
         createdAt :-1
     })
         .then(blogs => {
