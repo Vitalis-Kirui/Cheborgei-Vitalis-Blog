@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AdminService } from 'src/app/Services/admin.service';
 import { BlogsService } from 'src/app/Services/blogs.service';
 
@@ -19,7 +20,10 @@ export class BlogsComponent implements OnInit {
   // Categories
   categories: any = ['General Software Engineering', 'MEAN Stack', 'Angular', 'React Js', 'MongoDB', 'NodeJS', 'ExpressJS','Python','Others']
 
-  constructor( private fbService : FormBuilder, private adminService: AdminService, private blogService: BlogsService) { }
+  constructor(private fbService: FormBuilder,
+    private adminService: AdminService,
+    private blogService: BlogsService,
+  private router : Router) { }
 
   ngOnInit() {
     // Form model
@@ -72,5 +76,10 @@ export class BlogsComponent implements OnInit {
       );
 
   }
+
+  // Open blog
+  openBlog(id: any) {
+    this.router.navigate(['admin/blogs/blog/' + id]);
+   }
 
 }

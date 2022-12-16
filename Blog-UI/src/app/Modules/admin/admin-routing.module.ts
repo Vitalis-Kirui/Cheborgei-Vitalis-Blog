@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'users', component: UsersComponent },
   { path: 'user/:id', component: UserDetailsComponent },
   { path: 'blogs', component: BlogsComponent },
-  { path: 'blog/:id', component: BlogDetailsComponent },
+  { path: 'blogs/blog/:id', component: BlogDetailsComponent },
   { path: 'blog-requests', component: BlogRequestsComponent },
   { path: 'blog-request/:id', component: BlogRequestsDetailsComponent },
   { path: 'messages', component: MessageComponent },

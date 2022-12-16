@@ -23,7 +23,11 @@ export class BlogDetailsComponent implements OnInit {
       .subscribe(data => {
         this.blog = data.blog;
         console.log(data);
-        })
+      },
+        error => {
+          console.log(error);
+        }
+      )
 
   }
 

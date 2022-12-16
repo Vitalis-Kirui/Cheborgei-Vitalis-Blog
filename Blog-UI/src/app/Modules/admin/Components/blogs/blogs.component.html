@@ -36,7 +36,7 @@
                     </p>
                     <p class="text-primary">{{blog.createdAt | date }}</p>
 
-                        <button class="btn btn-primary btn-sm m-1">Expand</button>
+                        <button class="btn btn-primary btn-sm m-1" type="button" (click)="openBlog(blog._id)">Expand</button>
                         <button class="btn btn-success btn-sm m-1">Archirve</button>
                         <button class="btn btn-primary btn-sm m-1">Update</button>
                         <button class="btn btn-danger btn-sm m-1">Delete</button>
