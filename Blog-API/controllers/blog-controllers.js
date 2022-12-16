@@ -33,7 +33,7 @@ const getBlogs = (req, res) => {
 // Getting active blogs and sorting them in descending order
 const activeBlogs = (req, res) => {
 
-    Blog.find({ status: 'active' }).sort({ createdAt: -1 })
+    Blog.find({ status: 'active' }).sort({ title: -1 })
         .then((activeblogs) => {
 
         let totalActiveBlogs = activeBlogs.length;
@@ -48,7 +48,7 @@ const activeBlogs = (req, res) => {
 // Getting dormant blogs and sorting them in descending order
 const dormantBlogs = (req, res) => {
 
-    Blog.find({ status: 'inactive' }).sort({ createdAt: -1 })
+    Blog.find({ status: 'in-active' }).sort({ createdAt: -1 })
         .then((inactiveBlogs) => {
 
         let totalInactiveBlogs = inactiveBlogs.length;

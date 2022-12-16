@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AdminService } from 'src/app/Services/admin.service';
 
 @Component({
   selector: 'app-blogs',
@@ -14,7 +15,7 @@ export class BlogsComponent implements OnInit {
   // Categories
   categories: any = ['General Software Engineering', 'MEAN Stack', 'Angular', 'React Js', 'MongoDB', 'NodeJS', 'ExpressJS','Python','Others']
 
-  constructor( private fbService : FormBuilder) { }
+  constructor( private fbService : FormBuilder, private adminService: AdminService) { }
 
   ngOnInit() {
     // Form model
@@ -42,6 +43,18 @@ export class BlogsComponent implements OnInit {
   // Submitting the blog
   submitBlog() {
     console.log(this.blogForm.value);
+
+    this.adminService.postBlog(this.blogForm.value)
+      .subscribe(data => { 
+        console.log("Blog successfully created");
+        console.log(data);
+        this.blogForm.reset();
+      },
+        error => {
+          console.log(error);
+        }
+      );
+
   }
 
 }
