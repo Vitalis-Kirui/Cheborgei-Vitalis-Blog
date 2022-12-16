@@ -80,50 +80,19 @@
             </div>
 
             <!-- Sample Blogs -->
-            <div>
+            <div *ngFor="let active of activeBlogs">
                 <ul>
-                    <li><strong>Choice of Frontend Frameworks | <span class="category">Angular</span></strong></li>
+                    <li><strong>{{active.title}} | <span class="category">{{active.category}}</span></strong></li>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti enim ipsum est optio.
-                        Quo architecto, nesciunt sapiente tenetur laboriosam ea quibusdam amet quia
-                        molestias necessitatibus, minus dolorum repellendus repudiandae doloribus.
+                        {{active.description}}
+                    </p>
+                    <p class="text-primary">
+                        {{active.createdAt | date}}
                     </p>
                     <button class="btn btn-primary m-1">Join</button>
                     <button class="btn btn-success  m-1">Star</button>
                 </ul>
-            
-                <ul>
-                    <li><strong>Choice of Frontend Frameworks | <span class="category">Others</span></strong></li>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti enim ipsum est optio.
-                        Quo architecto, nesciunt sapiente tenetur laboriosam ea quibusdam amet quia
-                        molestias necessitatibus, minus dolorum repellendus repudiandae doloribus.
-                    </p>
-                    <button class="btn btn-primary m-1">Join</button>
-                    <button class="btn btn-success  m-1">Star</button>
-                </ul>
-            
-                <ul>
-                    <li><strong>Choice of Frontend Frameworks | <span class="category">MEAN Stack</span></strong></li>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti enim ipsum est optio.
-                        Quo architecto, nesciunt sapiente tenetur laboriosam ea quibusdam amet quia
-                        molestias necessitatibus, minus dolorum repellendus repudiandae doloribus.
-                    </p>
-                    <button class="btn btn-primary m-1">Join</button>
-                    <button class="btn btn-success  m-1">Star</button>
-                </ul>
-
-                <ul>
-                     <li><strong>Choice of Frontend Frameworks | <span class="category">General Software Engineering</span></strong></li>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti enim ipsum est optio.
-                        Quo architecto, nesciunt sapiente tenetur laboriosam ea quibusdam amet quia
-                        molestias necessitatibus, minus dolorum repellendus repudiandae doloribus.
-                    </p>
-                    <button class="btn btn-primary m-1">Join</button>
-                    <button class="btn btn-success  m-1">Star</button>
-                </ul>
+                    
 
             </div>
         

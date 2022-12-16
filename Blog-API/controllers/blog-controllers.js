@@ -33,7 +33,7 @@ const getBlogs = (req, res) => {
 // Getting active blogs and sorting them in descending order
 const activeBlogs = (req, res) => {
 
-    Blog.find({ status: 'active' }).sort({ title: -1 })
+    Blog.find({ status: 'active' }).sort({ title: 1 })
         .then((activeblogs) => {
 
         let totalActiveBlogs = activeBlogs.length;
