@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BlogsService } from 'src/app/Services/blogs.service';
 
 @Component({
   selector: 'app-archirves',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArchirvesComponent implements OnInit {
 
-  constructor() { }
+  // Blogs array
+  allBlogs: any = [];
 
-  ngOnInit(): void {
+  constructor(private blogService : BlogsService) { }
+
+  ngOnInit() {
+
+    // Getting all blogs
+    this.blogService.getAllBlogs()
+      .subscribe(data => {
+
+        this.allBlogs = data.blogs;
+        console.log(data);
+          
+        })
+
   }
 
 }
