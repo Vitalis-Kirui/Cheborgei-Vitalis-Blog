@@ -120,7 +120,7 @@
                     <p class="text-primary">
                         {{new.createdAt | date}}
                     </p>
-                    <button class="btn btn-primary m-1">Join</button>
+                    <button class="btn btn-primary m-1" type="button" (click)="openBlog(new._id)">Join</button>
                     <button class="btn btn-success  m-1">Star</button>
                 </ul>
             

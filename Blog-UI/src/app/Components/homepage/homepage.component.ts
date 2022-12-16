@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BlogsService } from 'src/app/Services/blogs.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class HomepageComponent implements OnInit {
   // New blogs array
   newBlogs : any = [];
 
-  constructor(private fbService : FormBuilder, private blogService: BlogsService) { }
+  constructor(private fbService : FormBuilder, private blogService: BlogsService, private router : Router) { }
 
   ngOnInit() {
 
@@ -69,10 +70,16 @@ export class HomepageComponent implements OnInit {
     return this.suggestionForm.get('category');
   }
 
+  // Submitting suggestion
   submitSuggestion() {
     console.log(this.suggestionForm.value)
 
     this.suggestionForm.reset();
   };
+
+  // Open blog
+  openBlog(id: any) {
+    this.router.navigate(['blogs/blog/',id]);
+   }
 
 }
