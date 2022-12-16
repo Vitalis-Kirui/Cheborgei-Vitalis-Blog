@@ -27,6 +27,6 @@ export class BlogsService {
 
   // Opening a single blog
   getSingleBlog(id : any): Observable<any> {
-    return this.http.get(environment.getSingleBlogUrl, id);
+    return this.http.get(environment.getSingleBlogUrl+id);
   }
 }

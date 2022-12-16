@@ -79,7 +79,7 @@ export class HomepageComponent implements OnInit {
 
   // Open blog
   openBlog(id: any) {
-    this.router.navigate(['blogs/blog/',id]);
+    this.router.navigate(['/blogs/blog/',id]);
    }
 
 }
