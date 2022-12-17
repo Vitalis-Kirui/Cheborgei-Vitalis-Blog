@@ -24,13 +24,13 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .suggestionN1{
-    width: 70%;
-    border-radius: 50px 0px 50px 0px;
+    width: 50%;
+    border-radius: 35px 0px 35px 0px;
 }
 
 .suggestionN2 {
-    width: 75%;
-    border-radius: 50px 0px 50px 0px;
+    width: 50%;
+    border-radius: 35px 0px 35px 0px;
 }
 
 .topIntroduction{
