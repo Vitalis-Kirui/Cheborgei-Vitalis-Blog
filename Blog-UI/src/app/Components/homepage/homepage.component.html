@@ -8,15 +8,16 @@
 
                 <p>
                     Hello there? If you are not here by accident, you probably know me. In any case, I am
-                    Vitalis, Kipyegon Kirui Vitalis, a full-stack software developer or a software engineer if 
+                    Vitalis, Kipyegon Kirui Vitalis, a full-stack software developer or a software engineer if
                     you might call it. There a lot about me but I satisfied introducing myself with these words.
-                    My favorite and choice of stack is MEAN stack, yes, <span class="text-success"><strong>MEAN</strong></span>.
+                    My favorite and choice of stack is MEAN stack, yes, <span
+                        class="text-success"><strong>MEAN</strong></span>.
                 </p>
                 <p>
                     If you are a software developer, you probably know that they stack is not the first choice
-                    for many people. If not saying it's not popular but the trend is not rising compared to other 
-                    stacks. At least the Angular part, I believe a number of people out there prefers 
-                    <span class="text-success"><strong>Vue Js || React Js</strong></span> over 
+                    for many people. If not saying it's not popular but the trend is not rising compared to other
+                    stacks. At least the Angular part, I believe a number of people out there prefers
+                    <span class="text-success"><strong>Vue Js || React Js</strong></span> over
                     angular. Personally, I love Angular and if you ask me, I will always choose Angular any day
                     any minute.
                 </p>
@@ -44,7 +45,8 @@
             <h2 class="text-center topBlogsName"><strong>Blogs</strong></h2>
             <hr>
             <p>
-                This is it, this is where we engage. It's down to comments section guys. Welcome and let's have a productive 
+                This is it, this is where we engage. It's down to comments section guys. Welcome and let's have a
+                productive
                 engagements.
             </p>
 
@@ -56,19 +58,20 @@
                     <li>Being polite doesn't cost a thing,</li>
                     <li>Lighting one's candle doesn't make yours less brighter,</li>
                     <li>Bugs in software engineering are as important as learning basics, don't be discourage,</li>
-                    <li>You don't have to be right in your comments, try it and there learning and exchange of ideas begins </li>
+                    <li>You don't have to be right in your comments, try it and there learning and exchange of ideas
+                        begins </li>
                 </ul>
                 <p>
                     Let's get to it, cheers!
                 </p>
             </div>
-            
+
         </div>
 
         <!-- Trending and New blogs section -->
         <!-- Trending -->
         <div class="col-md-7 mx-auto my-2 activeBlogs">
-        
+
             <!-- Heading -->
             <div class="heading text-center">
                 <h2 class="active"><strong>Active Blogs</strong></h2>
@@ -94,12 +97,12 @@
                 </ul>
 
             </div>
-        
+
         </div>
-        
+
         <!-- New Blogs -->
         <div class="col-md-4 mx-auto my-2 newBlogs">
-        
+
             <!-- Heading -->
             <div class="heading text-center">
                 <h2 class="new"><strong>New Blogs</strong></h2>
@@ -123,9 +126,9 @@
                     <button class="btn btn-primary m-1" type="button" (click)="openBlog(new._id)">Join</button>
                     <button class="btn btn-success  m-1">Star</button>
                 </ul>
-            
+
             </div>
-        
+
         </div>
 
         <!-- Suggestion and Archirves -->
@@ -140,7 +143,7 @@
 
             <p>
                 You may have noticed that blogs being displayed runs for a short period
-                of time. You may be new here or being nostagic on older blogs, great news, you can still access this 
+                of time. You may be new here or being nostagic on older blogs, great news, you can still access this
                 blogs using respective buttons below.
             </p>
 
@@ -149,7 +152,7 @@
                 <a href="/archirves">
                     <button class="btn btn-primary m-2">Archirves</button>
                 </a>
-            
+
             </div>
 
             <!-- Suggestion form -->
@@ -172,7 +175,8 @@
                     <!-- Category -->
                     <div class="mt-3 mb-1">
                         <p class="mt-3 mb-1 label"><strong>Select category</strong></p>
-                        <select class="custom-select" (change)="changeCategory($event)" name="category" formControlName="category">
+                        <select class="custom-select" (change)="changeCategory($event)" name="category"
+                            formControlName="category">
                             <option *ngFor="let category of categories" [ngValue]="category">{{category}}</option>
                         </select>
                     </div>
@@ -180,7 +184,8 @@
                     <!-- Blog -->
                     <div class="form-group">
                         <label for="" class="mt-3 mb-1"><strong>Blog</strong></label>
-                        <textarea name="blog" id="" cols="30" rows="5" class="form-control" formControlName="blog" ></textarea>
+                        <textarea name="blog" id="" cols="30" rows="5" class="form-control"
+                            formControlName="blog"></textarea>
                     </div>
 
                     <!-- Submit button -->
@@ -191,7 +196,7 @@
             </div>
 
         </div>
-        
+
     </div>
 
 </div>

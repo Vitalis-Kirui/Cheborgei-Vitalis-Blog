@@ -1,6 +1,6 @@
 h1, h2, h3, h4, h5, h6{
     background-color: rgb(194, 223, 250);
-    padding: 1%;
+    padding: 2%;
     margin: auto;
     /* box-shadow: 0px 0px 10px -5px grey; */
     margin-bottom: 1%;
@@ -8,28 +8,29 @@ h1, h2, h3, h4, h5, h6{
 
 .myName{
     width: 50%;
-    border-radius: 80px 0px 100px 0px;
+    border-radius: 50px 0px 50px 0px;
 }
 
 .topBlogsName {
     width: 25%;
-    border-radius: 150px 0px 150px 0px;
+    border-radius: 50px 0px 50px 0px;
 }
 
 .active,
 .new{
     width: 50%;
-    border-radius: 150px 0px 150px 0px;
+    border-radius: 50px 0px 50px 0px;
+    padding: 5%;
 }
 
 .suggestionN1{
     width: 70%;
-    border-radius: 150px 0px 150px 0px;
+    border-radius: 50px 0px 50px 0px;
 }
 
 .suggestionN2 {
     width: 75%;
-    border-radius: 150px 0px 150px 0px;
+    border-radius: 50px 0px 50px 0px;
 }
 
 .topIntroduction{
@@ -37,6 +38,7 @@ h1, h2, h3, h4, h5, h6{
     border-radius: 100px 0px 100px 0px;
     padding-top: 2%;
 }
+
 hr{
     display: none;
     width: 50%;
@@ -51,7 +53,7 @@ hr{
 
 /* Buttons */
 button{
-    border-radius: 150px 0px 150px 0px;
+    border-radius: 20px 0px 20px 0px;
     font-size: 0.9rem;
 }
 
@@ -78,16 +80,16 @@ button{
 /* Trending blogs */
 .activeBlogs{
     /* background-color: rgb(218, 236, 251); */
-    padding: 1%;
-    border-radius: 110px 0px 150px 0px;
-    box-shadow: 0px 0px 5px 0px grey;
+    padding: 2%;
+    border-radius: 50px 0px 50px 0px;
+    box-shadow: 0px 0px 20px -10px grey;
 }
 
 .newBlogs{
     /* background-color: rgb(201, 255, 255); */
-    padding: 1%;
-    border-radius: 110px 0px 100px 0px;
-    box-shadow: 0px 0px 5px 0px grey;
+    padding: 2%;
+    border-radius: 50px 0px 50px 0px;
+    box-shadow: 0px 0px 20px -10px grey;
 }
 
 .category{
@@ -103,20 +105,21 @@ label, .label{
 .suggestionForm{
     width: 75%;
     margin: auto;
+    /* padding: 10%; */
 }
 
 .form-control{
     padding: 2%;
-    border-radius: 25px 0px 100px 0px;
+    border-radius: 20px 0px 30px 0px;
 }
 
 .custom-select{
     padding: 1%;
-    border-radius: 25px 0px 30px 0px;
+    border-radius: 10px 0px 10px 0px;
 }
 
 .suggestion{
-    border-radius: 100px 0px 150px 0px;
-    padding: 2%;
+    border-radius: 20px 0px 50px 0px;
+    padding: 3%;
     box-shadow: 0px 0px 20px -10px grey;
 }

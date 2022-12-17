@@ -1,10 +1,10 @@
 h2 {
     background-color: rgb(209, 231, 250);
-    width: 75%;
+    width: 60%;
     margin: auto;
-    border-radius: 100px 0px 100px 0px;
+    border-radius: 50px 0px 50px 0px;
     color: black !important;
-    padding: 1%;
+    padding: 2%;
 
 }
 
@@ -15,7 +15,7 @@ label {
 .registration {
     background-color: rgb(255, 255, 255);
     padding: 5%;
-    border-radius: 150px 0px 150px 0px;
+    border-radius: 50px 0px 50px 0px;
 }
 
 button {

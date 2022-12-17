@@ -2,9 +2,9 @@ h2{
     background-color: rgb(209, 231, 250);
     width: 50%;
     margin: auto;
-    border-radius: 150px 0px 150px 0px;
+    border-radius: 35px 0px 35px 0px;
     color: black !important;
-    padding: 1%;
+    padding: 2%;
 
 }
 
@@ -15,7 +15,7 @@ label {
 .login {
     background-color: rgb(255, 255, 255);
     padding: 5%;
-    border-radius: 150px 0px 150px 0px;
+    border-radius: 50px 0px 50px 0px;
 }
 
 button{

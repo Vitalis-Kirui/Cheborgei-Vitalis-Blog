@@ -1,9 +1,9 @@
 h1{
     background-color: rgb(209, 231, 250);
-    width: 40%;
-    padding: 1%;
+    width: 35%;
+    padding: 2%;
     padding-left: 10%;
-    border-radius: 100px 0px 100px 0px;
+    border-radius: 50px 0px 50px 0px;
 }
 
 label{
@@ -14,8 +14,8 @@ h3{
     background-color: white;
     width: 35%;
     margin: auto;
-    padding: 1%;
-    border-radius: 100px 0px 100px 0px;
+    padding: 2%;
+    border-radius: 50px 0px 50px 0px;
     box-shadow: 0px 0px 2px 0px ;
     margin-bottom: 1%;
 }
@@ -28,12 +28,12 @@ h3{
     padding-top: 2%;
     margin: auto;
     /* box-shadow: 0px 0px 5px 0px; */
-    border-radius: 20px 200px 20px 200px;
+    border-radius: 20px 100px 20px 100px;
     background-color: rgb(255, 242, 222);
 }
 
 .form-control{
-    border-radius: 0px 50px 0px 50px;
+    border-radius: 0px 20px 0px 20px;
     padding: 2%;
     margin-left: 2%;
 }
@@ -54,7 +54,7 @@ button{
 .socialMedia{
     padding: 2%;
     background-color:rgb(229, 240, 250);
-    border-radius: 50px 0px 150px 0px;
+    border-radius: 50px 0px 100px 0px;
     width: 75%;
     margin: auto;
 }
