@@ -37,9 +37,6 @@
                     <p class="text-primary">{{blog.createdAt | date }}</p>
 
                         <button class="btn btn-primary btn-sm m-1" type="button" (click)="openBlog(blog._id)">Expand</button>
-                        <button class="btn btn-success btn-sm m-1">Archirve</button>
-                        <button class="btn btn-primary btn-sm m-1">Update</button>
-                        <button class="btn btn-danger btn-sm m-1">Delete</button>
                 </ul>
 
             </div>
@@ -125,6 +122,7 @@
             </p>
 
             <!-- Buttons -->
+            <a href="admin/all-blogs"><button class="btn btn-info m-3">All Blogs</button></a>
             <a href="admin/users"><button class="btn btn-primary m-3"><strong>Users</strong></button></a>
             <a href="admin/messages"><button class="btn btn-dark m-3">Messages</button></a>
             <a href="admin/blog-requests"><button class="btn btn-success m-3">Blog Requests</button></a>

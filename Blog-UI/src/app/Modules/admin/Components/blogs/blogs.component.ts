@@ -80,6 +80,6 @@ export class BlogsComponent implements OnInit {
   // Open blog
   openBlog(id: any) {
     this.router.navigate(['admin/blogs/blog/' + id]);
-   }
+  }
 
 }

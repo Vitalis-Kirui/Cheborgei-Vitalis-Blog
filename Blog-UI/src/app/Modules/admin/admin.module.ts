@@ -11,7 +11,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MessageDetailsComponent } from './Components/message-details/message-details.component';
 import { MessageComponent } from './Components/message/message.component';
 import { BlogRequestsComponent } from './Components/blog-requests/blog-requests.component';
-import { BlogRequestsDetailsComponent } from './Components/blog-requests-details/blog-requests-details.component'
+import { BlogRequestsDetailsComponent } from './Components/blog-requests-details/blog-requests-details.component';
+import { AllBlogsComponent } from './Components/all-blogs/all-blogs.component';
+import { UpdateBlogComponent } from './Components/update-blog/update-blog.component'
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { BlogRequestsDetailsComponent } from './Components/blog-requests-details
     MessageDetailsComponent,
     MessageComponent,
     BlogRequestsComponent,
-    BlogRequestsDetailsComponent
+    BlogRequestsDetailsComponent,
+    AllBlogsComponent,
+    UpdateBlogComponent
   ],
   imports: [
     CommonModule,
