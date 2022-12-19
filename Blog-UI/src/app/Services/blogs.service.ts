@@ -10,11 +10,6 @@ export class BlogsService {
 
   constructor(private http: HttpClient) { }
 
-  // creating a blog request
-  createBlogRequest(blogRequest: any) {
-    return this.http.post<any>(environment.createRequestUrl, blogRequest);
-  }
-
   // Gett all the blogs
   getAllBlogs(): Observable<any>{
     return this.http.get(environment.getAllBlogsUrl)
