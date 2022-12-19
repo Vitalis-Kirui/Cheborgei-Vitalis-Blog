@@ -70,6 +70,17 @@ export class ArchirvingComponent implements OnInit {
   // submit function
   archirveBlog() {
     console.log(this.archirveForm.value);
+
+    let id = this.route.snapshot.paramMap.get('id');
+
+    this.blogService.updateBlog(id, this.archirveForm.value)
+      .subscribe(success => {
+        console.log("Archirve successfully")
+      },
+        error => {
+          console.log(error);
+        }
+      )
   }
 
 }
