@@ -69,6 +69,7 @@ export class BlogsComponent implements OnInit {
         console.log("Blog successfully created");
         console.log(data);
         this.blogForm.reset();
+        window.location.reload();
       },
         error => {
           console.log(error);
