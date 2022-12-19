@@ -1,11 +1,17 @@
 <div class="container">
     <div class="row">
 
+        <div class="heading text-center">
+            <h1 class="text-primary"><strong>All Blogs</strong></h1>
+            <hr>
+        </div>
+
         <div class="col-md-3 mx-auto my-5 pt-5" *ngFor="let blog of blogs">
 
             <h3 class="text-primary"><strong>{{blog.title}}</strong></h3>
-            <p class="status bg-info p-1"><strong>{{blog.status}}</strong></p>
-            <p class="pt-1"><strong>{{blog.description}}</strong></p>
+            <p class="status bg-info p-1" *ngIf="blog.status==='active'" ><strong>{{blog.status}}</strong></p>
+            <p class="status bg-warning p-1" *ngIf="blog.status==='in-active'"><strong>{{blog.status}}</strong></p>
+            <p class="pt-1">{{blog.description}}</p>
             <p class="text-success"><strong>{{blog.createdAt | date | uppercase}}</strong></p>
 
             <!-- Delete button -->
