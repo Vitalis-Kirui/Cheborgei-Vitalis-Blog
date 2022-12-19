@@ -226,11 +226,24 @@ const getSingleUser = (req, res) => {
     });
 };
 
+// new users created in the last 72 hours
+const newUsers = (req, res) => {
+    User.find({ createdAt: { $lt: new Date(), $gt: new Date(new Date().getTime() - (72 * 60 * 60 * 1000)) } })
+        .sort({ createdAt: -1 })
+        .then(blogs => {
+            res.json({ blogs: blogs })
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}
+
 module.exports = {
     createUser,
     loginUser,
     getUsers,
     getSingleUser,
     userProfile,
-    updateUserProfile
+    updateUserProfile,
+    newUsers
 }
