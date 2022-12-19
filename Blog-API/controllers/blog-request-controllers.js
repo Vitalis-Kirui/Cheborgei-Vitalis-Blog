@@ -1,5 +1,7 @@
 const BlogRequest = require('../models/blog-requests-model')
 const User = require('../models/user-model');
+const jwt = require('jsonwebtoken');
+const config = require('../config/config-variables');
 
 // Creating a new blog request
 const createBlogRequest = (req, res) => { 
@@ -32,9 +34,9 @@ const createBlogRequest = (req, res) => {
             .then((user) => {
 
                 const requestData = {
-                    title: request.body.title,
-                    category: request.body.category,
-                    blog: request.body.blog,
+                    title: req.body.title,
+                    category: req.body.category,
+                    blog: req.body.blog,
                     status: 'Under review',
                     ownerId: userId,
                     ownernames:user.firstname +' ' + user.lastname,

@@ -23,8 +23,7 @@ export class HomepageComponent implements OnInit {
   // New blogs array
   newBlogs : any = [];
 
-  constructor(private fbService: FormBuilder, private blogService: BlogsService,
-    private router: Router, requestService: BlogRequestService) { }
+  constructor(private fbService: FormBuilder, private blogService: BlogsService,private router: Router) { }
 
   ngOnInit() {
 
@@ -77,7 +76,7 @@ export class HomepageComponent implements OnInit {
     console.log(this.suggestionForm.value)
 
     // creating a new suggestion
-    this.requestService.createBlogRequest(this.suggestionForm.value)
+    this.blogService.createBlogRequest(this.suggestionForm.value)
       .subscribe(success => {
         console.log("Blog request created successfully");
       },
