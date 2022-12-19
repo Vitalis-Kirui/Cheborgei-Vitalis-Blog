@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// message schema
 const messageSchema = new Schema({
     email: {
         type: String,
@@ -12,7 +11,7 @@ const messageSchema = new Schema({
         required: true
     }
 },
-    {timestamps : true}
+    {timestamps: true}
 );
 
-module.exports = ('Message', messageSchema, 'messages');
+module.exports = mongoose.model('Message', messageSchema, 'messages');
