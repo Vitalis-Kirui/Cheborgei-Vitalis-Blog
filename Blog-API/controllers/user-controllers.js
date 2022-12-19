@@ -230,8 +230,8 @@ const getSingleUser = (req, res) => {
 const newUsers = (req, res) => {
     User.find({ createdAt: { $lt: new Date(), $gt: new Date(new Date().getTime() - (72 * 60 * 60 * 1000)) } })
         .sort({ createdAt: -1 })
-        .then(blogs => {
-            res.json({ blogs: blogs })
+        .then(users => {
+            res.json({ users: users })
         })
         .catch(error => {
             console.log(error);
