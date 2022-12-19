@@ -12,6 +12,14 @@
 }
 
 .heading{
-    box-shadow: -10px -10px 25px -10px grey;
+    box-shadow: -5px -5px 25px -10px grey;
     padding: 2%;
+}
+
+.switchPanel h2 {
+    background-color: rgb(209, 231, 250);
+    width: 65%;
+    margin: auto;
+    padding: 1%;
+    border-radius: 150px 0px 150px 0px;
 }
