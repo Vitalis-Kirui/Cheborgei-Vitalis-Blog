@@ -1,9 +1,8 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-8 my-5 pt-5 mx-auto">
+        <div class="col-md-8 my-5 pt-5 mx-auto form">
 
             <!-- Update blog form -->
-            <div class="form">
 
                 <form [formGroup]="updateForm" (ngSubmit)="updateBlog()">
                 
@@ -51,12 +50,10 @@
                     </div>
                 
                     <!-- Buttons -->
-                    <button class="btn btn-primary m-3" type="submit">Post</button>
+                    <button class="btn btn-primary m-3" type="submit">Update</button>
                     <button class="btn btn-info m-3">Reset</button>
                 
                 </form>
-
-            </div>
 
         </div>
     </div>

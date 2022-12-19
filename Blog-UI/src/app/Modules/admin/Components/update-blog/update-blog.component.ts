@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-update-blog',
@@ -14,14 +14,29 @@ export class UpdateBlogComponent implements OnInit {
    // Categories
   categories: any = ['General Software Engineering', 'MEAN Stack', 'Angular', 'React Js', 'MongoDB', 'NodeJS', 'ExpressJS','Python','Others']
 
-  constructor() { }
+  constructor(private fbService : FormBuilder) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    // Form model
+    this.updateForm = this.fbService.group({
+      image: [''],
+      title: [''],
+      category: [''],
+      description: [''],
+      status: ['']
+    })
   }
 
-  // Change category event function
-  changeCategory(event : any) {
-    
+// Changes in the dropdown list
+  changeCategory(event: any) {
+    this.category?.setValue(event.target.value, {
+      onlySelf: true,
+    });
+  }
+  
+  // Access formcontrols getter
+  get category() {
+    return this.updateForm.get('category');
   }
 
   // Update form form function
