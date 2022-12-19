@@ -15,7 +15,7 @@
             <p class="text-success"><strong>{{blog.createdAt | date | uppercase}}</strong></p>
 
             <!-- Delete button -->
-            <button class="btn btn-danger m-3" type="button"><strong>Delete</strong></button>
+            <button class="btn btn-danger m-3" type="button" (click)="deleteBlog(blog._id)"><strong>Delete</strong></button>
 
         </div>
 

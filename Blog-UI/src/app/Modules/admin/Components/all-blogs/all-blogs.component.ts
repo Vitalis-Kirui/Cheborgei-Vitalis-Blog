@@ -26,4 +26,18 @@ export class AllBlogsComponent implements OnInit {
       )
   }
 
+  // Deleting a blog function
+  deleteBlog(id: any) { 
+    this.blogService.deleteBlog(id)
+      .subscribe(success => {
+        console.log("Blog deleted successfully")
+        
+        window.location.reload()
+      },
+        error => {
+          console.log("Error deleting the blog", error);
+        }
+      )
+  }
+
 }
