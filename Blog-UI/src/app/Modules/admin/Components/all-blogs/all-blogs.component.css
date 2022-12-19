@@ -10,3 +10,8 @@
     background-color: white;
     padding: 2%;
 }
+
+.heading{
+    box-shadow: -10px -10px 25px -10px grey;
+    padding: 2%;
+}
