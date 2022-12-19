@@ -18,9 +18,6 @@ export class ArchirvingComponent implements OnInit {
 
   // Categories
   categories: any = ['General Software Engineering', 'MEAN Stack', 'Angular', 'React Js', 'MongoDB', 'NodeJS', 'ExpressJS', 'Python', 'Others']
-  
-  // Existing blog data
-  existingBlog: any = {};
 
   constructor(private blogService : BlogsService, private route : ActivatedRoute, private fbService: FormBuilder) { }
 
@@ -41,6 +38,15 @@ export class ArchirvingComponent implements OnInit {
       .subscribe(data => {
         this.blog = data.blog;
         console.log(data);
+
+        // Patching values
+        this.archirveForm.patchValue({
+          image: this.blog.image,
+          title: this.blog.title,
+          category: this.blog.category,
+          description: this.blog.description,
+          status: this.blog.status
+        })
       },
         error => {
           console.log(error);
