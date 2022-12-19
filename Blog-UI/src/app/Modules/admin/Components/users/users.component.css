@@ -1,0 +1,35 @@
+.total {
+    padding-left: 5%;
+    font-weight: 600;
+}
+
+th {
+    color: brown;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+.allUsers {
+    margin-left: 4%;
+}
+
+.total p {
+    font-size: 20px;
+}
+
+table {
+    width: 100%;
+}
+
+.row{
+    background-color: white;
+    padding-bottom: 5%;
+}
