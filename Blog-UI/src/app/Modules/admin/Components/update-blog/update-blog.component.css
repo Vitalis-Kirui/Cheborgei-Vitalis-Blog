@@ -2,3 +2,21 @@
     background-color: white;
     padding: 5%;
 }
+
+label, .label{
+    color: brown;
+}
+
+form{
+    width: 85%;
+    margin: auto;
+}
+
+.form-control{
+    border-radius: 20px 0px 20px 0px;
+}
+
+hr{
+    width: 50%;
+    margin: auto;
+}
