@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { AllBlogsComponent } from './Components/all-blogs/all-blogs.component';
+import { ArchirvingComponent } from './Components/archirving/archirving.component';
 import { BlogDetailsComponent } from './Components/blog-details/blog-details.component';
 import { BlogRequestsDetailsComponent } from './Components/blog-requests-details/blog-requests-details.component';
 import { BlogRequestsComponent } from './Components/blog-requests/blog-requests.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'user/:id', component: UserDetailsComponent },
   { path: 'blogs', component: BlogsComponent },
   { path: 'all-blogs', component: AllBlogsComponent },
+  {path: 'blogs/blog/archirve/:id', component : ArchirvingComponent},
   {path: 'blogs/update-blog/:id', component: UpdateBlogComponent},
   { path: 'blogs/blog/:id', component: BlogDetailsComponent },
   { path: 'blog-requests', component: BlogRequestsComponent },

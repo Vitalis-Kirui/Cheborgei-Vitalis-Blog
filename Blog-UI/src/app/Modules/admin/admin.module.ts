@@ -13,7 +13,8 @@ import { MessageComponent } from './Components/message/message.component';
 import { BlogRequestsComponent } from './Components/blog-requests/blog-requests.component';
 import { BlogRequestsDetailsComponent } from './Components/blog-requests-details/blog-requests-details.component';
 import { AllBlogsComponent } from './Components/all-blogs/all-blogs.component';
-import { UpdateBlogComponent } from './Components/update-blog/update-blog.component'
+import { UpdateBlogComponent } from './Components/update-blog/update-blog.component';
+import { ArchirvingComponent } from './Components/archirving/archirving.component'
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { UpdateBlogComponent } from './Components/update-blog/update-blog.compon
     BlogRequestsComponent,
     BlogRequestsDetailsComponent,
     AllBlogsComponent,
-    UpdateBlogComponent
+    UpdateBlogComponent,
+    ArchirvingComponent
   ],
   imports: [
     CommonModule,

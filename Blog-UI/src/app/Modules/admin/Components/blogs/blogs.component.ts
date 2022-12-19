@@ -101,4 +101,9 @@ export class BlogsComponent implements OnInit {
       )
   }
 
+  // Archirving blog function
+  archirveBlog(id: any) {
+    this.router.navigate(['admin/blogs/blog/archirve/'+id]);
+  }
+
 }
