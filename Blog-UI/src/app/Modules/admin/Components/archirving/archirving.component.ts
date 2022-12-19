@@ -45,7 +45,7 @@ export class ArchirvingComponent implements OnInit {
           title: this.blog.title,
           category: this.blog.category,
           description: this.blog.description,
-          status: this.blog.status
+          status: "in-active"
         })
       },
         error => {
