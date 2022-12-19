@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BlogRequestService } from 'src/app/Services/blog-request.service';
 import { BlogsService } from 'src/app/Services/blogs.service';
 
 @Component({
@@ -22,7 +23,8 @@ export class HomepageComponent implements OnInit {
   // New blogs array
   newBlogs : any = [];
 
-  constructor(private fbService : FormBuilder, private blogService: BlogsService, private router : Router) { }
+  constructor(private fbService: FormBuilder, private blogService: BlogsService,
+    private router: Router, requestService: BlogRequestService) { }
 
   ngOnInit() {
 
@@ -75,7 +77,14 @@ export class HomepageComponent implements OnInit {
     console.log(this.suggestionForm.value)
 
     // creating a new suggestion
-    
+    this.requestService.createBlogRequest(this.suggestionForm.value)
+      .subscribe(success => {
+        console.log("Blog request created successfully");
+      },
+        error => {
+          console.log("Error creating blog request", error);
+        }
+      )
 
     this.suggestionForm.reset();
   };
