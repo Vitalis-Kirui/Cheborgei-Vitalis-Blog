@@ -24,7 +24,7 @@ const createMessage = (req, res) => {
 const getMessages = (req, res) => { 
     
     // Finding and sorting messages
-    Message.find().sort({ createdAt: -1 })
+    Message.find({}).sort({ createdAt: -1 })
         .then((messages) => { 
 
         let messageCount = messages.length;
