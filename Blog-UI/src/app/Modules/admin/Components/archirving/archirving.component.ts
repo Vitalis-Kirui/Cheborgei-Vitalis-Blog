@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { BlogsService } from 'src/app/Services/blogs.service';
 
@@ -11,6 +12,15 @@ export class ArchirvingComponent implements OnInit {
 
   // Blog object
   blog: any = [];
+
+  // Archirve form
+  archirveForm!: FormGroup;
+
+  // Categories
+  categories: any = ['General Software Engineering', 'MEAN Stack', 'Angular', 'React Js', 'MongoDB', 'NodeJS', 'ExpressJS', 'Python', 'Others']
+  
+  // Existing blog data
+  existingBlog: any = {};
 
   constructor(private blogService : BlogsService, private route : ActivatedRoute) { }
 
@@ -28,6 +38,23 @@ export class ArchirvingComponent implements OnInit {
         }
       )
 
+  }
+
+  // Changes in the dropdown list
+  changeCategory(event: any) {
+    this.category?.setValue(event.target.value, {
+      onlySelf: true,
+    });
+  }
+  
+  // Access formcontrols getter
+  get category() {
+    return this.archirveForm.get('category');
+  }
+
+  // submit function
+  archirveBlog() {
+    console.log(this.archirveForm.value);
   }
 
 }
