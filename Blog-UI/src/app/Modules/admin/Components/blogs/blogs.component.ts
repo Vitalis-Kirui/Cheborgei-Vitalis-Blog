@@ -87,4 +87,18 @@ export class BlogsComponent implements OnInit {
     this.router.navigate(['admin/blogs/update-blog/' +id]);
   }
 
+  // Deleting a blog function
+  deleteBlog(id: any) { 
+    this.blogService.deleteBlog(id)
+      .subscribe(success => {
+        console.log("Blog deleted successfully")
+        
+        window.location.reload()
+      },
+        error => {
+          console.log("Error deleting the blog", error);
+        }
+      )
+  }
+
 }

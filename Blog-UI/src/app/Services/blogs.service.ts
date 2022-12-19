@@ -35,4 +35,9 @@ export class BlogsService {
     return this.http.put<any>(environment.updateBlogUrl+id, blog);
   }
 
+  // Delete a blog
+  deleteBlog(id: any) { 
+    return this.http.delete<any>(environment.deleteBlogUrl+id);
+  }
+
 }
