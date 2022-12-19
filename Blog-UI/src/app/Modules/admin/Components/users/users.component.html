@@ -1,1 +1,52 @@
-<p>users works!</p>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-10 mx-auto my-5">
+
+            <div class="text-center">
+
+                <h2 class=" text-success">Users panel</h2>
+                <hr>
+                <p>
+                    These page disclose all about users. It expose all of the information
+                    about users. It will help you keep track on rate at which users are creating
+                    accounts with us.
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 mx-auto pt-3">
+
+            <h3 class="text-success text-center">All Users</h3>
+            <hr>
+
+            <div class="allUsers">
+                <!-- Total users -->
+                <div class="total text-success">
+                    <p><strong>Total : {{allUsers.length}} Users</strong></p>
+                </div>
+
+                <!-- All users table -->
+                <table>
+                    <tr>
+                        <th><strong>First name</strong></th>
+                        <th><strong>Last name</strong></th>
+                        <th><strong>Username</strong></th>
+                        <th><strong>Email</strong></th>
+                    </tr>
+                    <tr *ngFor="let user of allUsers">
+                        <td>{{user.firstname}}</td>
+                        <td>{{user.lastname}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.email}}</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
