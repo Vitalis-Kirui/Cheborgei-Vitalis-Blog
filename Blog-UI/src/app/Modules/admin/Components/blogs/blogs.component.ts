@@ -82,4 +82,9 @@ export class BlogsComponent implements OnInit {
     this.router.navigate(['admin/blogs/blog/' + id]);
   }
 
+  // Update blog
+  updateBlog(id : any) {
+    this.router.navigate(['admin/blogs/update-blog/' +id]);
+  }
+
 }

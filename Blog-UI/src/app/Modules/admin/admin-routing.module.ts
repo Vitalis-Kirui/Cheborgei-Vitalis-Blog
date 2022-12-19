@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'user/:id', component: UserDetailsComponent },
   { path: 'blogs', component: BlogsComponent },
   { path: 'all-blogs', component: AllBlogsComponent },
-  {path: 'update-blog', component: UpdateBlogComponent},
+  {path: 'blogs/update-blog/:id', component: UpdateBlogComponent},
   { path: 'blogs/blog/:id', component: BlogDetailsComponent },
   { path: 'blog-requests', component: BlogRequestsComponent },
   { path: 'blog-request/:id', component: BlogRequestsDetailsComponent },
