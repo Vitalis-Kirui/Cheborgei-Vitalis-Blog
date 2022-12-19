@@ -20,4 +20,7 @@ router.put('/update-profile', userControllers.updateUserProfile);
 // Getting a single user route
 router.get('/user/:id', userControllers.getSingleUser);
 
+// New user route
+router.get('/new-users', userControllers.newUsers);
+
 module.exports = router;
