@@ -29,4 +29,10 @@ export class BlogsService {
   getSingleBlog(id : any): Observable<any> {
     return this.http.get(environment.getSingleBlogUrl+id);
   }
+
+  // Updating a blog
+  updateBlog(id:any, blog: any) {
+    return this.http.put<any>(environment.updateBlogUrl+id, blog);
+  }
+
 }

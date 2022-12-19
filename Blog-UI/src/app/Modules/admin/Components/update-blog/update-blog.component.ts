@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BlogsService } from 'src/app/Services/blogs.service';
 
 
@@ -22,7 +22,8 @@ export class UpdateBlogComponent implements OnInit {
 
   constructor(private fbService: FormBuilder,
     private blogService: BlogsService,
-  private route : ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private router : Router) { }
 
   ngOnInit() {
     // Form model
@@ -44,7 +45,6 @@ export class UpdateBlogComponent implements OnInit {
 
         // Patching values
         this.updateForm.patchValue({
-
           image: this.existingBlog.image,
           title: this.existingBlog.title,
           category: this.existingBlog.category,
@@ -53,7 +53,6 @@ export class UpdateBlogComponent implements OnInit {
         })
 
       },
-        
         error =>{
           console.log(error);
         }
@@ -76,6 +75,19 @@ export class UpdateBlogComponent implements OnInit {
   // Update form form function
   updateBlog() {
     console.log(this.updateForm.value);
+
+    let id = this.route.snapshot.paramMap.get('id');
+
+    this.blogService.updateBlog(id, this.updateForm.value)
+      .subscribe(success => {
+        console.log("Update successfully")
+        
+        this.router.navigate(['admin/blogs']);
+      },
+        error => {
+          console.log(error);
+        }
+      )
   }
 
 }
