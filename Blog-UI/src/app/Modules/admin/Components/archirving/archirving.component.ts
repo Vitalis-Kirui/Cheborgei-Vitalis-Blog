@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { BlogsService } from 'src/app/Services/blogs.service';
 
@@ -22,9 +22,18 @@ export class ArchirvingComponent implements OnInit {
   // Existing blog data
   existingBlog: any = {};
 
-  constructor(private blogService : BlogsService, private route : ActivatedRoute) { }
+  constructor(private blogService : BlogsService, private route : ActivatedRoute, private fbService: FormBuilder) { }
 
   ngOnInit() {
+
+    // Form model
+    this.archirveForm = this.fbService.group({
+      image: [''],
+      title: [''],
+      category: [''],
+      description: [''],
+      status: ['']
+    })
 
     let id = this.route.snapshot.paramMap.get('id');
 
