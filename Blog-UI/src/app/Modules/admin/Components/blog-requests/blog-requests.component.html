@@ -39,9 +39,9 @@
                         <td>{{request.title}}</td>
                         <td>{{request.blog}}</td>
                         <td>{{request.category}}</td>
-                        <td>{{request.owner}}</td>
+                        <td>{{request.ownernames}}</td>
                         <td>{{request.status}}</td>
-                        <td>{{request.createdAt}}</td>
+                        <td>{{request.createdAt | date | uppercase}}</td>
                         <td><button class="btn btn-outline-primary m-2" type="button"
                                 (click)="openRequest(request._id)">Open</button></td>
                     </tr>
@@ -77,9 +77,9 @@
                     <td>{{request.title}}</td>
                     <td>{{request.blog}}</td>
                     <td>{{request.category}}</td>
-                    <td>{{request.owner}}</td>
+                    <td>{{request.ownernames}}</td>
                     <td>{{request.status}}</td>
-                    <td>{{request.createdAt}}</td>
+                    <td>{{request.createdAt | date | uppercase}}</td>
                     <td><button class="btn btn-outline-primary m-2" type="button" (click)="openRequest(request._id)">Open</button>
                     </td>
                 </tr>
