@@ -23,7 +23,7 @@ const routes: Routes = [
   {path: 'blogs/update-blog/:id', component: UpdateBlogComponent},
   { path: 'blogs/blog/:id', component: BlogDetailsComponent },
   { path: 'blog-requests', component: BlogRequestsComponent },
-  { path: 'blog-request/:id', component: BlogRequestsDetailsComponent },
+  { path: 'blog-requests/blog-request/:id', component: BlogRequestsDetailsComponent },
   { path: 'messages', component: MessageComponent },
   {path: 'messages/message/:id', component: MessageDetailsComponent}
 ];

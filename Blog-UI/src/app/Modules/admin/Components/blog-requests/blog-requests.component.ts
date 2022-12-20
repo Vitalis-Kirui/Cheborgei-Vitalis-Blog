@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BlogRequestService } from 'src/app/Services/blog-request.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class BlogRequestsComponent implements OnInit {
   // New request array
   newRequest: any = [];
 
-  constructor(private blogRequestService: BlogRequestService) { }
+  constructor(private blogRequestService: BlogRequestService, private router : Router) { }
 
   ngOnInit() {
 
@@ -44,7 +45,7 @@ export class BlogRequestsComponent implements OnInit {
 
   // Open request function
   openRequest(id : any) {
-    
+    this.router.navigate(['admin/blog-requests/blog-request', id]);
   }
 
 }
