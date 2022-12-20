@@ -9,17 +9,36 @@ import { BlogRequestService } from 'src/app/Services/blog-request.service';
 export class BlogRequestsComponent implements OnInit {
 
   // Request array
-  requests:any = [];
+  requests: any = [];
+  
+  // New request array
+  newRequest: any = [];
 
   constructor(private blogRequestService: BlogRequestService) { }
 
   ngOnInit() {
 
+    // Getting all requests
     this.blogRequestService.getAllRequest()
       .subscribe(data => {
-        this.requests = data.request;
+        this.requests = data.blogRequests;
         console.log(data);
-        })
+      },
+        error => {
+          console.log(error);
+        }
+    )
+    
+    // Getting new requests
+    this.blogRequestService.getNewRequests()
+      .subscribe(data => { 
+        this.newRequest = data.requests;
+        console.log(data);
+      },
+        error => {
+          console.log(error);
+        }
+      )
 
   }
 
