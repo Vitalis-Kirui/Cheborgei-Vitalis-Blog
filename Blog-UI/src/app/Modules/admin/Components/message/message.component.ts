@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MessagesService } from 'src/app/Services/messages.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class MessageComponent implements OnInit {
   // New messages array
   newMessages: any = [];
 
-  constructor(private messageService : MessagesService) { }
+  constructor(private messageService : MessagesService, private router: Router) { }
 
   ngOnInit() {
 
@@ -44,7 +45,7 @@ export class MessageComponent implements OnInit {
 
   // Opening messages function
   openMessage(id: any) {
-    
+    this.router.navigate(['admin/messages/message/' + id]);
   }
 
 }

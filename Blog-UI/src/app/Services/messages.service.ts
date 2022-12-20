@@ -26,8 +26,8 @@ export class MessagesService {
   }
 
   // getting a single message
-  getSingleMessage(): Observable<any> {
-    return this.http.get<any>(environment.getTodayMessagesUrl);
+  getSingleMessage(id: any): Observable<any> {
+    return this.http.get<any>(environment.getSingleMessageUrl+id);
   }
 
   // Deleting messages

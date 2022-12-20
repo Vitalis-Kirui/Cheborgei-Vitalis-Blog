@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'blog-requests', component: BlogRequestsComponent },
   { path: 'blog-request/:id', component: BlogRequestsDetailsComponent },
   { path: 'messages', component: MessageComponent },
-  {path: 'messages/:id', component: MessageDetailsComponent}
+  {path: 'messages/message/:id', component: MessageDetailsComponent}
 ];
 
 @NgModule({
