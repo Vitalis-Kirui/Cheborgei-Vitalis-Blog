@@ -18,23 +18,30 @@
             <hr>
 
             <div class="allMessages">
-                <!-- Total reviews -->
+                <!-- Total requests -->
                 <div class="total text-success">
                     <p><strong>Total : {{requests.length}} Blog Requests</strong></p>
                 </div>
 
-                <!-- All reviews table -->
+                <!-- All requests table -->
                 <table>
                     <tr>
-                        <th><strong>Message</strong></th>
-                        <th><strong>Email</strong></th>
-                        <th><strong>Date</strong></th>
+                        <th><strong>Title</strong></th>
+                        <th><strong>Blog</strong></th>
+                        <th><strong>Category</strong></th>
+                        <th><strong>Owner</strong></th>
+                        <th><strong>Status</strong></th>
+                        <th><strong>Created On</strong></th>
                         <th><strong>Action</strong></th>
+
                     </tr>
                     <tr *ngFor="let request of requests">
-                        <td>{{request.message}}</td>
-                        <td>{{request.email}}</td>
-                        <td>{{request.createdAt | date}}</td>
+                        <td>{{request.title}}</td>
+                        <td>{{request.blog}}</td>
+                        <td>{{request.category}}</td>
+                        <td>{{request.owner}}</td>
+                        <td>{{request.status}}</td>
+                        <td>{{request.createdAt}}</td>
                         <td><button class="btn btn-outline-primary m-2" type="button"
                                 (click)="openRequest(request._id)">Open</button></td>
                     </tr>
@@ -57,17 +64,23 @@
 
             <table>
                 <tr>
-                    <th><strong>Message</strong></th>
-                    <th><strong>Email</strong></th>
-                    <th><strong>Date</strong></th>
+                    <th><strong>Title</strong></th>
+                    <th><strong>Blog</strong></th>
+                    <th><strong>Category</strong></th>
+                    <th><strong>Owner</strong></th>
+                    <th><strong>Status</strong></th>
+                    <th><strong>Created On</strong></th>
                     <th><strong>Action</strong></th>
+            
                 </tr>
                 <tr *ngFor="let request of newRequest">
-                    <td>{{request.message}}</td>
-                    <td>{{request.email}}</td>
-                    <td>{{request.createdAt | date}}</td>
-                    <td><button class="btn btn-outline-primary m-2" type="button"
-                            (click)="openRequest(request._id)">Open</button>
+                    <td>{{request.title}}</td>
+                    <td>{{request.blog}}</td>
+                    <td>{{request.category}}</td>
+                    <td>{{request.owner}}</td>
+                    <td>{{request.status}}</td>
+                    <td>{{request.createdAt}}</td>
+                    <td><button class="btn btn-outline-primary m-2" type="button" (click)="openRequest(request._id)">Open</button>
                     </td>
                 </tr>
             </table>

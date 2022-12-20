@@ -21,7 +21,7 @@ export class BlogRequestsComponent implements OnInit {
     // Getting all requests
     this.blogRequestService.getAllRequest()
       .subscribe(data => {
-        this.requests = data.blogRequests;
+        this.requests = data.requests;
         console.log(data);
       },
         error => {
@@ -32,7 +32,7 @@ export class BlogRequestsComponent implements OnInit {
     // Getting new requests
     this.blogRequestService.getNewRequests()
       .subscribe(data => { 
-        this.newRequest = data.requests;
+        this.newRequest = data.blogRequests;
         console.log(data);
       },
         error => {
