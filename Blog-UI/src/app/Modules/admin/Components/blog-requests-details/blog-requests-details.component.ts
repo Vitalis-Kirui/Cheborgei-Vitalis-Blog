@@ -32,4 +32,18 @@ export class BlogRequestsDetailsComponent implements OnInit {
 
   }
 
+  // delete function
+  deleteBlogRequest(id: any) {
+
+    this.blogRequestService.deleteRequest(id)
+      .subscribe(data => {
+        console.log("Blog request deleted successfully");
+      },
+        error => {
+          console.log(error);
+        }
+      )
+    
+  }
+
 }
