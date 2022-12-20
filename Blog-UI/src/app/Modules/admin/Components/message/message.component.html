@@ -1,1 +1,113 @@
-<p>message works!</p>
+<div class="container">
+    <div class="row">
+
+        <!-- Top message -->
+        <div class="col-md-6 my-5 pt-3 mx-auto text-center">
+            <h3 class="text-success">Messages Admin Panel</h3>
+            <hr>
+
+            <p>
+                This is admin panel for messages. <br>
+                These are messages from clients and some of them are enquiries which
+                may need to be contacted back to the admin. This so will give you access to their
+                email address and phone numbers.
+            </p>
+            <p>
+                Some messages maybe irrelevant or does not have valid contact information,
+                these and more need to be removed. Use action delete button.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- Messages table -->
+    <div class="row">
+        <div class="col-md-8 mx-auto pt-3">
+
+            <h3 class="text-success text-center">All Messages</h3>
+            <hr>
+
+            <div class="allMessages">
+                <!-- Total reviews -->
+                <div class="total text-success">
+                    <p><strong>Total : {{messages.length}} Messages</strong></p>
+                </div>
+
+                <!-- All reviews table -->
+                <table>
+                    <tr>
+                        <th><strong>Phone</strong></th>
+                        <th><strong>Message</strong></th>
+                        <th><strong>Email</strong></th>
+                        <th><strong>Date</strong></th>
+                        <th><strong>Action</strong></th>
+                    </tr>
+                    <tr *ngFor="let message of messages">
+                        <td class="text-success"><strong>{{message.phonenumber}}</strong></td>
+                        <td>{{message.message}}</td>
+                        <td>{{message.email}}</td>
+                        <td>{{message.createdAt | date}}</td>
+                        <td><button class="btn btn-outline-primary m-2" type="button"
+                                (click)="openMessage(message._id)">Open</button></td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+
+        <!-- Today Messages -->
+        <div class="col-md-8 mx-auto my-lg-5">
+
+            <div class="text-center">
+                <h2 class="text-success"><strong>Messages from the last 24 hours</strong></h2>
+                <hr>
+            </div>
+
+            <div class="total text-success">
+                <p><strong>Total : {{newMessages.length}} Messages</strong></p>
+            </div>
+
+            <table>
+                <tr>
+                    <th><strong>Phone</strong></th>
+                    <th><strong>Message</strong></th>
+                    <th><strong>Email</strong></th>
+                    <th><strong>Date</strong></th>
+                    <th><strong>Action</strong></th>
+                </tr>
+                <tr *ngFor="let message of newMessages">
+                    <td class="text-success"><strong>{{message.phonenumber}}</strong></td>
+                    <td>{{message.message}}</td>
+                    <td>{{message.email}}</td>
+                    <td>{{message.createdAt | date}}</td>
+                    <td><button class="btn btn-outline-primary m-2" type="button"
+                            (click)="openMessage(message._id)">Open</button>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <!-- switch panel -->
+        <div class="col-md-4 mx-auto my-5">
+
+            <h2 class="text-center text-success">Switch Panel</h2>
+            <hr>
+
+            <div class="buttons my-3 text-center">
+                <a href="admin/users">
+                    <button class="btn btn-outline-primary m-3"><strong>Users</strong></button>
+                </a>
+                <a href="admin/reviews">
+                    <button class="btn btn-outline-success m-3"><strong>Reviews</strong></button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
