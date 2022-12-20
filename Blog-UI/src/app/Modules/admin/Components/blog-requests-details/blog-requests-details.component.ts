@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { BlogRequestService } from 'src/app/Services/blog-request.service';
 
 @Component({
   selector: 'app-blog-requests-details',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogRequestsDetailsComponent implements OnInit {
 
-  constructor() { }
+  // request object
+  blogRequest: any = [];
 
-  ngOnInit(): void {
+  constructor(private blogRequestService: BlogRequestService, private route :ActivatedRoute) { }
+
+  ngOnInit() {
+
+    let id = this.route.snapshot.paramMap.get('id');
+
+    // Fetching blog request
+    this.blogRequestService.getSingleRequest(id)
+      .subscribe(data => {
+        this.blogRequest = data.requests;
+        console.log(data);
+      },
+        error => {
+          console.log(error);
+        }
+      )
+
+
   }
 
 }

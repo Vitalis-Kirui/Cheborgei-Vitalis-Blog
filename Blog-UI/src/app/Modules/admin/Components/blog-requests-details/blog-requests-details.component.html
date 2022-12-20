@@ -1,1 +1,20 @@
-<p>blog-requests-details works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto my-5 pt-5 pb-5 p-3">
+
+            <!-- Displaying request -->
+            <h2 class="text-primary"><strong>Title: {{blogRequest.title}}</strong></h2>
+            <hr>
+            <p><strong><span class="text-success">The Blog:</span> {{blogRequest.blog}}</strong></p>
+            <p><strong><span class="text-success">Owner:</span> {{blogRequest.ownernames}}</strong></p>
+            <p><strong><span class="text-success">Category:</span> {{blogRequest.category}}</strong></p>
+            <p><strong><span class="text-success">Status:</span> {{blogRequest.status}}</strong></p>
+            <p><strong><span class="text-success">Created on:</span> {{blogRequest.createdAt | date}}</strong></p>
+
+            <!-- Buttons -->
+            <button class="btn btn-primary m-3">Publish</button>
+            <button class="btn btn-danger m-3">Delete</button>
+
+        </div>
+    </div>
+</div>
