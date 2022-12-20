@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BlogRequestService } from 'src/app/Services/blog-request.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class BlogRequestsDetailsComponent implements OnInit {
   // request object
   blogRequest: any = [];
 
-  constructor(private blogRequestService: BlogRequestService, private route :ActivatedRoute) { }
+  constructor(private blogRequestService: BlogRequestService, private route :ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
 
@@ -38,6 +38,9 @@ export class BlogRequestsDetailsComponent implements OnInit {
     this.blogRequestService.deleteRequest(id)
       .subscribe(data => {
         console.log("Blog request deleted successfully");
+
+        this.router.navigate(['admin/blog-requests'])
+
       },
         error => {
           console.log(error);
