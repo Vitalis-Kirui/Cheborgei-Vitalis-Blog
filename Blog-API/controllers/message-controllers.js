@@ -42,7 +42,7 @@ const dailyMessages = (req, res) => {
         .then((dailyMessages) => {
             let totalDailyMessages = dailyMessages.length;
 
-            res,json({total : totalDailyMessages, messages: dailyMessages})
+            res.json({total : totalDailyMessages, messages: dailyMessages})
             })
 
         .catch((error) => {
