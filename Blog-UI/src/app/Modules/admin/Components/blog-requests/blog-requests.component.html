@@ -1,1 +1,98 @@
-<p>blog-requests works!</p>
+<div class="container">
+    <div class="row">
+
+        <!-- Top message -->
+        <div class="col-md-6 my-5 pt-3 mx-auto text-center">
+            <h3 class="text-success"><strong>Blog Requests Admin Panel</strong></h3>
+            <hr>
+
+        </div>
+
+    </div>
+
+    <!-- Messages table -->
+    <div class="row">
+        <div class="col-md-8 mx-auto pt-3">
+
+            <h3 class="text-success text-center"><strong>All Blog Requests</strong></h3>
+            <hr>
+
+            <div class="allMessages">
+                <!-- Total reviews -->
+                <div class="total text-success">
+                    <p><strong>Total : {{requests.length}} Blog Requests</strong></p>
+                </div>
+
+                <!-- All reviews table -->
+                <table>
+                    <tr>
+                        <th><strong>Message</strong></th>
+                        <th><strong>Email</strong></th>
+                        <th><strong>Date</strong></th>
+                        <th><strong>Action</strong></th>
+                    </tr>
+                    <tr *ngFor="let request of requests">
+                        <td>{{request.message}}</td>
+                        <td>{{request.email}}</td>
+                        <td>{{request.createdAt | date}}</td>
+                        <td><button class="btn btn-outline-primary m-2" type="button"
+                                (click)="openRequest(request._id)">Open</button></td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+
+        <!-- Today Messages -->
+        <div class="col-md-8 mx-auto my-lg-5">
+
+            <div class="text-center">
+                <h2 class="text-success"><strong>New Blog Requests</strong></h2>
+                <hr>
+            </div>
+
+            <div class="total text-success">
+                <p><strong>Total : {{newRequest.length}} new blog requests</strong></p>
+            </div>
+
+            <table>
+                <tr>
+                    <th><strong>Message</strong></th>
+                    <th><strong>Email</strong></th>
+                    <th><strong>Date</strong></th>
+                    <th><strong>Action</strong></th>
+                </tr>
+                <tr *ngFor="let request of newRequest">
+                    <td>{{request.message}}</td>
+                    <td>{{request.email}}</td>
+                    <td>{{request.createdAt | date}}</td>
+                    <td><button class="btn btn-outline-primary m-2" type="button"
+                            (click)="openRequest(request._id)">Open</button>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <!-- switch panel -->
+        <div class="row switchPanel">
+            <div class="col-md-6 mx-auto text-center my-3">
+                <h2><strong>Switch Panel</strong></h2>
+                <p>
+                    Use respective buttons below to switch between other admin panels.
+                </p>
+
+                <!-- Buttons -->
+                <a href="admin/all-blogs"><button class="btn btn-info m-3">All Blogs</button></a>
+                <a href="admin/users"><button class="btn btn-primary m-3"><strong>Users</strong></button></a>
+                <a href="admin/blogs"><button class="btn btn-dark m-3">Blogs</button></a>
+                <a href="admin/messages"><button class="btn btn-success m-3">Messages</button></a>
+
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -42,4 +42,9 @@ export class BlogRequestsComponent implements OnInit {
 
   }
 
+  // Open request function
+  openRequest(id : any) {
+    
+  }
+
 }
