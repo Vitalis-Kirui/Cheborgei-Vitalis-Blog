@@ -21,18 +21,18 @@ export class BlogRequestService {
   }
 
   // Fetching single request
-  getSingleRequest(): Observable<any> {
-    return this.http.get<any>(environment.getSingleRequestsUrl);
+  getSingleRequest(id: any): Observable<any> {
+    return this.http.get<any>(environment.getSingleRequestsUrl+id);
   }
 
   // Fetching new request
-  getNewRequest(): Observable<any> {
+  getNewRequests(): Observable<any> {
     return this.http.get<any>(environment.getTodayRequestsUrl);
   }
 
   // Delete request
   deleteRequest(id: any) {
-    return this.http.delete<any>(environment.deleteRequestUrl, id);
+    return this.http.delete<any>(environment.deleteRequestUrl+id);
   }
 
 }

@@ -68,7 +68,7 @@ const getBlogRequests = (req, res) => {
         .then((blogRequests) => {
         let totalRequests = blogRequests.length;
 
-        res,json({ok: true, status: 200, requests: blogRequests, total:totalRequests});
+        res.json({ok: true, status: 200, requests: blogRequests, total:totalRequests});
         })
         .catch((error) => {
         console.log(error);

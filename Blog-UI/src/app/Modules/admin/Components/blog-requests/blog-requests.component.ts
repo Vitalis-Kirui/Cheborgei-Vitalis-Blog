@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BlogRequestService } from 'src/app/Services/blog-request.service';
 
 @Component({
   selector: 'app-blog-requests',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogRequestsComponent implements OnInit {
 
-  constructor() { }
+  // Request array
+  requests:any = [];
 
-  ngOnInit(): void {
+  constructor(private blogRequestService: BlogRequestService) { }
+
+  ngOnInit() {
+
+    this.blogRequestService.getAllRequest()
+      .subscribe(data => {
+        this.requests = data.request;
+        console.log(data);
+        })
+
   }
 
 }
