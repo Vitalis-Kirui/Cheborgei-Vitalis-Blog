@@ -1,0 +1,32 @@
+th {
+    color: brown;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+table {
+    width: 100%;
+}
+
+.total p {
+    font-size: 20px;
+}
+
+hr {
+    width: 75%;
+    margin: auto;
+    padding-top: 3%;
+}
+
+.container{
+    background-color: white;
+    border-radius: 0px 50px 0px 50px;
+}

@@ -42,4 +42,9 @@ export class MessageComponent implements OnInit {
 
   }
 
+  // Opening messages function
+  openMessage(id: any) {
+    
+  }
+
 }
