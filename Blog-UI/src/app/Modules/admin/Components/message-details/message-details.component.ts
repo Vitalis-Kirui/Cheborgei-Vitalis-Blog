@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MessagesService } from 'src/app/Services/messages.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class MessageDetailsComponent implements OnInit {
   // Message object
   message: any = {};
 
-  constructor(private messageService: MessagesService, private route:ActivatedRoute) { }
+  constructor(private messageService: MessagesService, private route:ActivatedRoute, private router : Router) { }
 
   ngOnInit() {
 
@@ -29,6 +29,24 @@ export class MessageDetailsComponent implements OnInit {
         }
       )
 
+  }
+
+  // Delete message function
+  deleteMessage() {
+    let id = this.route.snapshot.paramMap.get('id');
+
+    // Deleting message
+    this.messageService.deleteMessage(id)
+      .subscribe(data => {
+        console.log("Message deleted successfully");
+        
+        this.router.navigate(['admin/messages']);
+      },
+        error => {
+          console.log("Error deleting message", error);
+        }
+      )
+    
   }
 
 }
