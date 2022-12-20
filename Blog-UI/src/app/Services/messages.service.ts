@@ -32,7 +32,7 @@ export class MessagesService {
 
   // Deleting messages
   deleteMessage(id: any) {
-    return this.http.delete<any>(environment.deleteMessageUrl, id);
+    return this.http.delete<any>(environment.deleteMessageUrl+id);
   }
 
 }
