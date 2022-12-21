@@ -20,40 +20,40 @@ const createUser = (req, res) => {
             let user = new User(userDetails);
 
             // Saving the user
-            // user.save((error, savedUser) => { 
-            //     if (error) { 
-            //         console.log(error);
-            //     }
-            //     else {
-            //         res.json({ status: 200, message: 'User successfully registered.' });
-            //     }
-            // });
+            user.save((error, savedUser) => { 
+                if (error) { 
+                    console.log(error);
+                }
+                else {
+                    res.json({ status: 200, message: 'User successfully registered.' });
+                }
+            });
             
             // Hasing user passwords
-            bcrypt.genSalt(10, (error, salt) => { 
-                bcrypt.hash(user.password, salt, (error, hash) => { 
+            // bcrypt.genSalt(10, (error, salt) => { 
+            //     bcrypt.hash(user.password, salt, (error, hash) => { 
 
-                    if (error) {
-                        console.log(error)
-                    }
-                    else {
-                        user.password = hash;
-                        user.confirmpassword = hash;
+            //         if (error) {
+            //             console.log(error)
+            //         }
+            //         else {
+            //             user.password = hash;
+            //             user.confirmpassword = hash;
                         
-                        // Saving the user
-                        user.save((error, savedUser) => { 
-                            if (error) { 
-                                console.log(error);
-                            }
-                            else {
-                                res.json({status: 200, message:'User successfully registered.'});
-                            }
-                        });
+            //             // Saving the user
+            //             user.save((error, savedUser) => { 
+            //                 if (error) { 
+            //                     console.log(error);
+            //                 }
+            //                 else {
+            //                     res.json({status: 200, message:'User successfully registered.'});
+            //                 }
+            //             });
 
-                    }
+            //         }
 
-                })
-            })
+            //     })
+            // })
 
         }
      })
@@ -76,7 +76,7 @@ const loginUser = (req, res) => {
         else {
             let enteredPassword = userDetails.password;
 
-            if (user.password !== enteredPassword) { 
+            if (enteredPassword !==user.password ) { 
                 res.json({status:401, message:'Wrong password.'});
             }
             else {
